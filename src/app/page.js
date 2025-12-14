@@ -16,39 +16,45 @@ export default function Home() {
     { label: "Home", icon: "Home", href: "#home" },
     { label: "About", icon: "About", href: "#about" },
     { label: "Prizes", icon: "Prizes", href: "#prizes" },
-    { label: "Timeline", icon: "Timeline", href: "#mystry-advanture" }, // update section id to id="mystry-advanture"
+    { label: "Timeline", icon: "Timeline", href: "#mystry-advanture" },
     { label: "Tracks", icon: "Tracks", href: "#game-zones" },
     { label: "Mentors", icon: "Mentors", href: "/team" },
-    { label: "FAQ", icon: "FAQ", href: "#faqs" }, // match section id="faqs"
+    { label: "FAQ", icon: "FAQ", href: "#faqs" },
   ];
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-black">
+    <div className="relative min-h-screen bg-black">
       {/* Animated Background */}
       <div className="fixed inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-green-900/20 via-black/40 to-black/30 animate-gradient-x"></div>
-        <div className="absolute inset-0 bg-gradient-to-tr from-slate-800/20 via-green-800/20 to-black/40 animate-gradient-y"></div>
+        {/* Base dark gradient - more professional */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-black to-slate-950"></div>
 
-        {/* Stars Background */}
-        <div className="absolute inset-0 opacity-100">
-          {[...Array(100)].map((_, i) => (
+        {/* Subtle noise texture overlay for depth */}
+        <div className="absolute inset-0 opacity-[0.015]" style={{
+          backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 400 400\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")',
+        }}></div>
+
+        {/* Cinematic Stars - fewer, more subtle */}
+        <div className="absolute inset-0 opacity-60">
+          {[...Array(50)].map((_, i) => (
             <div
               key={i}
-              className="absolute bg-white rounded-full animate-pulse"
+              className="absolute bg-white rounded-full"
               style={{
-                width: Math.random() * 3 + 2 + 'px',
-                height: Math.random() * 3 + 2 + 'px',
+                width: Math.random() * 2 + 0.5 + 'px',
+                height: Math.random() * 2 + 0.5 + 'px',
                 left: Math.random() * 100 + '%',
                 top: Math.random() * 100 + '%',
-                opacity: Math.random() * 0.9 + 0.5,
-                animationDuration: Math.random() * 3 + 2 + 's'
+                opacity: Math.random() * 0.4 + 0.2,
+                animation: `pulse ${Math.random() * 4 + 3}s ease-in-out infinite`,
+                animationDelay: `${Math.random() * 2}s`
               }}
             />
           ))}
         </div>
 
-        {/* Left Wave */}
-        <div className="absolute left-0 top-0 bottom-0 w-40 md:w-56 lg:w-72 opacity-100 z-5">
+        {/* Left Wave - more subtle */}
+        <div className="absolute left-0 top-0 bottom-0 w-40 md:w-56 lg:w-72 opacity-30 z-5">
           <Image
             src="/waves-DawnI9IY.png"
             alt="Left Wave"
@@ -59,8 +65,8 @@ export default function Home() {
           />
         </div>
 
-        {/* Right Wave */}
-        <div className="absolute right-0 top-0 bottom-0 w-40 md:w-56 lg:w-72 opacity-100 transform scale-x-[-1] z-5">
+        {/* Right Wave - more subtle */}
+        <div className="absolute right-0 top-0 bottom-0 w-40 md:w-56 lg:w-72 opacity-30 transform scale-x-[-1] z-5">
           <Image
             src="/waves-DawnI9IY.png"
             alt="Right Wave"
@@ -71,22 +77,24 @@ export default function Home() {
           />
         </div>
 
-        {/* Blended Gradient Overlay - Red, Purple, Green Mix */}
+        {/* Professional Stranger Things Lighting - Darker, more cinematic */}
         <div className="absolute inset-0 pointer-events-none">
-          {/* Top-Left: Purple to Red gradient */}
-          <div className="absolute -top-1/3 -left-1/3 w-2/3 h-2/3 bg-gradient-to-br from-purple-900/35 via-red-900/30 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDuration: '4s' }}></div>
+          {/* Top atmospheric red glow - Stranger Things signature */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-1/2 bg-gradient-to-b from-red-950/20 via-red-950/10 to-transparent blur-3xl"></div>
 
-          {/* Top-Right: Red to Purple gradient */}
-          <div className="absolute -top-1/4 -right-1/4 w-2/3 h-2/3 bg-gradient-to-bl from-red-900/35 via-purple-900/30 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s', animationDuration: '4s' }}></div>
+          {/* Subtle purple accent - left side */}
+          <div className="absolute top-1/4 -left-1/4 w-1/2 h-1/2 bg-gradient-to-br from-purple-950/15 via-purple-950/8 to-transparent rounded-full blur-3xl" style={{ animationDuration: '8s' }}></div>
 
-          {/* Bottom-Left: Green to Purple gradient */}
-          <div className="absolute -bottom-1/4 -left-1/4 w-2/3 h-2/3 bg-gradient-to-tr from-green-900/15 via-purple-900/12 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s', animationDuration: '4s' }}></div>
+          {/* Subtle red accent - right side */}
+          <div className="absolute top-1/3 -right-1/4 w-1/2 h-1/2 bg-gradient-to-bl from-red-950/15 via-red-950/8 to-transparent rounded-full blur-3xl" style={{ animationDelay: '2s', animationDuration: '8s' }}></div>
 
-          {/* Bottom-Right: Red to Green gradient */}
-          <div className="absolute -bottom-1/3 -right-1/3 w-2/3 h-2/3 bg-gradient-to-tl from-red-900/30 via-green-900/12 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '0.75s', animationDuration: '4s' }}></div>
+          {/* Bottom red glow - creates depth */}
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-1/3 bg-gradient-to-t from-red-950/12 via-red-950/5 to-transparent blur-2xl"></div>
 
-          {/* Center: All colors mixed */}
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-r from-purple-900/20 via-red-900/25 via-green-900/10 to-purple-900/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '0.5s', animationDuration: '4s' }}></div>
+          {/* Vignette effect for professional look */}
+          <div className="absolute inset-0" style={{
+            background: 'radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0.6) 100%)'
+          }}></div>
         </div>
       </div>
 
@@ -106,17 +114,17 @@ export default function Home() {
       />
 
       {/* Hero Section */}
-      <section id="home" className="relative z-20 h-screen w-screen flex items-center overflow-hidden -mx-[calc((100vw-100%)/2)]">
+      <section id="home" className="relative z-20 h-[87vh] w-screen flex items-center overflow-hidden -mx-[calc((100vw-100%)/2)]">
         <div
           className="absolute inset-0 w-full h-full"
           style={{
             backgroundImage: 'url(/hero-bg.jpg)',
             backgroundSize: 'cover',
-            backgroundPosition: 'center',
+            backgroundPosition: 'center 40%',
             backgroundRepeat: 'no-repeat'
           }}
         ></div>
-        <div className="absolute inset-0 w-full h-full bg-black/50"></div>
+         <div className="absolute inset-0 w-full h-full bg-black/50"></div>
 
         <div className="container mx-auto px-4 relative z-10 flex items-center">
           {/* Hero Content - Left Side */}
@@ -124,7 +132,7 @@ export default function Home() {
 
                 {/* Top Line */}
 
-                <div className="flex flex-col justify-center items-center mb-4">
+                <div className="flex flex-col justify-center items-center mb-6">
                   <div className="w-full flex justify-center">
                     <ShinyText
                       text="CODE"
@@ -143,18 +151,18 @@ export default function Home() {
                   </div>
                 </div>
 
-                
+
 
                 {/* Bottom Line */}
 
                 <div className="flex justify-center">
                   <motion.button
-                    className="px-8 py-4 bg-gradient-to-r from-red-600/40 to-red-600/40 text-red-300 rounded-xl font-semibold transition-colors duration-300 font-bold backdrop-blur-sm ring-1 ring-red-500/50 hover:ring-red-400/70 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-400/80"
-                    whileHover={{ scale: 1.12 }}
+                    className="px-8 py-4 bg-gradient-to-r from-red-600/30 via-red-700/40 to-red-600/30 text-red-200 rounded-xl font-semibold transition-all duration-300 font-bold backdrop-blur-md ring-2 ring-red-500/60 hover:ring-red-400/80 hover:bg-red-600/50 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-red-400/80 shadow-lg shadow-red-900/50"
+                    whileHover={{ scale: 1.08 }}
                     whileTap={{ scale: 0.98 }}
                     transition={{ type: "spring", mass: 0.1, stiffness: 150, damping: 12 }}
                   >
-                  <span className="font-bold">REGISTRATION OPEN SOON</span>
+                  <span className="font-bold tracking-wide">REGISTRATION OPEN SOON</span>
                   </motion.button>
                 </div>
         </div>
@@ -230,7 +238,7 @@ export default function Home() {
       </section>
 
       {/* About Section - Space Theme */}
-      <section id="about" className="relative z-20 pt-20 pb-20 overflow-hidden will-change-transform">
+      <section id="about" className="relative z-20 pt-20 pb-8 overflow-hidden will-change-transform">
         <div className="container mx-auto px-4 relative z-10">
           {/* Section Header */}
           <div className="mb-2 flex flex-col items-start justify-center overflow-hidden ml-auto w-2/3 lg:w-1/2 px-12" suppressHydrationWarning>
@@ -266,7 +274,7 @@ export default function Home() {
             </div>
 
             {/* Right Side - Content (Overlapping) */}
-            <div className="relative ml-auto w-2/3 lg:w-1/2 space-y-6 text-base leading-relaxed px-12 py-16 z-20">
+            <div className="relative ml-auto w-2/3 lg:w-1/2 space-y-6 text-base leading-relaxed px-12 py-8 z-20">
               <p className="text-lg font-black text-white">
                 <span className="text-xl font-extrabold">Cloud Native Durgapur</span> isn&apos;t just a tech community&mdash;it&apos;s a movement.
               </p>
