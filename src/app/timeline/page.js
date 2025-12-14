@@ -140,3 +140,10 @@ export default function TimelinePage() {
 
           {/* Timeline Container */}
           <div className="relative max-w-5xl mx-auto">
+            {/* content */}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
