@@ -5,6 +5,7 @@ import Dock from "./Dock";
 import { HoverEffect } from "../ui/card-hover-effect";
 import ShinyText from "../ui/ShinyText";
 import TextType from "../ui/TextType";
+import VenueSection from "./venue/VenueSection";
 
 import { useState } from "react";
 import { motion } from "motion/react";
@@ -19,6 +20,7 @@ export default function Home() {
     { label: "Timeline", icon: "Timeline", href: "#mystry-advanture" },
     { label: "Tracks", icon: "Tracks", href: "#game-zones" },
     { label: "Mentors", icon: "Mentors", href: "/team" },
+    { label: "Venue", icon: "Venue", href: "#venue" },
     { label: "FAQ", icon: "FAQ", href: "#faqs" },
   ];
 
@@ -124,48 +126,48 @@ export default function Home() {
             backgroundRepeat: 'no-repeat'
           }}
         ></div>
-         <div className="absolute inset-0 w-full h-full bg-black/50"></div>
+        <div className="absolute inset-0 w-full h-full bg-black/50"></div>
 
         <div className="container mx-auto px-4 relative z-10 flex items-center">
           {/* Hero Content - Left Side */}
-                <div className="relative z-10 w-1/2">
+          <div className="relative z-10 w-1/2">
 
-                {/* Top Line */}
+            {/* Top Line */}
 
-                <div className="flex flex-col justify-center items-center mb-6">
-                  <div className="w-full flex justify-center">
-                    <ShinyText
-                      text="CODE"
-                      speed={5}
-                      hollow={true}
-                      className="text-7xl md:text-8xl lg:text-9xl leading-none"
-                    />
-                  </div>
-                  <div className="w-full flex justify-center">
-                    <ShinyText
-                      text="CRESTZ"
-                      speed={5}
-                      hollow={true}
-                      className="text-7xl md:text-8xl lg:text-9xl leading-none"
-                    />
-                  </div>
-                </div>
+            <div className="flex flex-col justify-center items-center mb-6">
+              <div className="w-full flex justify-center">
+                <ShinyText
+                  text="CODE"
+                  speed={5}
+                  hollow={true}
+                  className="text-7xl md:text-8xl lg:text-9xl leading-none"
+                />
+              </div>
+              <div className="w-full flex justify-center">
+                <ShinyText
+                  text="CRESTZ"
+                  speed={5}
+                  hollow={true}
+                  className="text-7xl md:text-8xl lg:text-9xl leading-none"
+                />
+              </div>
+            </div>
 
 
 
-                {/* Bottom Line */}
+            {/* Bottom Line */}
 
-                <div className="flex justify-center">
-                  <motion.button
-                    className="px-8 py-4 bg-gradient-to-r from-red-600/30 via-red-700/40 to-red-600/30 text-red-200 rounded-xl font-semibold transition-all duration-300 font-bold backdrop-blur-md ring-2 ring-red-500/60 hover:ring-red-400/80 hover:bg-red-600/50 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-red-400/80 shadow-lg shadow-red-900/50"
-                    whileHover={{ scale: 1.08 }}
-                    whileTap={{ scale: 0.98 }}
-                    transition={{ type: "spring", mass: 0.1, stiffness: 150, damping: 12 }}
-                  >
-                  <span className="font-bold tracking-wide">REGISTRATION OPEN SOON</span>
-                  </motion.button>
-                </div>
-        </div>
+            <div className="flex justify-center">
+              <motion.button
+                className="px-8 py-4 bg-gradient-to-r from-red-600/30 via-red-700/40 to-red-600/30 text-red-200 rounded-xl font-semibold transition-all duration-300 font-bold backdrop-blur-md ring-2 ring-red-500/60 hover:ring-red-400/80 hover:bg-red-600/50 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-red-400/80 shadow-lg shadow-red-900/50"
+                whileHover={{ scale: 1.08 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ type: "spring", mass: 0.1, stiffness: 150, damping: 12 }}
+              >
+                <span className="font-bold tracking-wide">REGISTRATION OPEN SOON</span>
+              </motion.button>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -570,7 +572,7 @@ export default function Home() {
               showCursor={true}
               cursorCharacter="|"
             />
-            
+
           </div>
 
           {/* Beginning Heading */}
@@ -583,7 +585,7 @@ export default function Home() {
                 className="text-4xl md:text-5xl font-bold"
               />
             </div>
-           
+
             <div className="flex justify-center mb-8">
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-green-400 via-purple-500 to-red-600 rounded-full blur-2xl opacity-80 animate-pulse"></div>
@@ -1125,15 +1127,15 @@ export default function Home() {
       <section id="testimonials" className="relative z-20 py-20">
         <div className="container mx-auto px-4 relative z-10"> */}
 
-          {/* Section header */}
-          {/* <div className="relative text-center mb-12">
+      {/* Section header */}
+      {/* <div className="relative text-center mb-12">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold bg-gradient-to-r from-green-400 via-emerald-400 to-teal-400 bg-clip-text text-transparent mb-4 tracking-tight" style={{ fontFamily: 'ITC Benguiat Bold, serif' }}>
               Testimonials
             </h2>
           </div> */}
 
-          {/* Testimonials rows (two moving rows) */}
-          {/* {(() => {
+      {/* Testimonials rows (two moving rows) */}
+      {/* {(() => {
             const data = [
               {
                 quote: "An amazing opportunity to connect with practitioners and learn by doing.",
@@ -1167,7 +1169,7 @@ export default function Home() {
               },
             ]; */}
 
-            {/* const card = (t, key) => {
+      {/* const card = (t, key) => {
               const initials = t.name.split(' ').map(n => n[0]).slice(0,2).join('').toUpperCase();
               return (
                 <div key={key} className="w-[320px] shrink-0 rounded-xl border border-green-500/50 bg-green-900/20 backdrop-blur-md shadow-sm p-5 flex flex-col gap-4">
@@ -1309,6 +1311,9 @@ export default function Home() {
       </section>
 
 
+
+      {/* Venue Section */}
+      <VenueSection />
 
       {/* Footer - Space Theme */}
       <footer className="relative z-20 text-white py-12 border-t border-green-500/20">
