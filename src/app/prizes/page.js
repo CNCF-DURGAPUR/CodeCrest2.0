@@ -4,6 +4,7 @@ import Image from "next/image";
 import TextType from "../../ui/TextType";
 import { motion } from "motion/react";
 import Dock from "../Dock";
+import VenueSection from "../venue/VenueSection";
 
 export default function PrizesPage() {
   const dockItems = [
@@ -68,16 +69,16 @@ export default function PrizesPage() {
         {/* Blended Gradient Overlay - Red, Purple, Green Mix */}
         <div className="absolute inset-0 pointer-events-none">
           {/* Top-Left: Purple to Red gradient */}
-          <div className="absolute -top-1/3 -left-1/3 w-2/3 h-2/3 bg-gradient-to-br from-purple-900/35 via-red-900/30 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDuration: '4s' }}></div>
+          <div className="absolute -top-1/3 -left-1/3 w-2/3 h-2/3 hidden md:block bg-gradient-to-br from-purple-900/35 via-red-900/30 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDuration: '4s' }}></div>
 
           {/* Top-Right: Red to Purple gradient */}
-          <div className="absolute -top-1/4 -right-1/4 w-2/3 h-2/3 bg-gradient-to-bl from-red-900/35 via-purple-900/30 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s', animationDuration: '4s' }}></div>
+          <div className="absolute -top-1/4 -right-1/4 w-2/3 h-2/3 hidden md:block bg-gradient-to-bl from-red-900/35 via-purple-900/30 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s', animationDuration: '4s' }}></div>
 
           {/* Bottom-Left: Green to Purple gradient */}
-          <div className="absolute -bottom-1/4 -left-1/4 w-2/3 h-2/3 bg-gradient-to-tr from-green-900/15 via-purple-900/12 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s', animationDuration: '4s' }}></div>
+          <div className="absolute -bottom-1/4 -left-1/4 w-2/3 h-2/3 hidden md:block bg-gradient-to-tr from-green-900/15 via-purple-900/12 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s', animationDuration: '4s' }}></div>
 
           {/* Bottom-Right: Red to Green gradient */}
-          <div className="absolute -bottom-1/3 -right-1/3 w-2/3 h-2/3 bg-gradient-to-tl from-red-900/30 via-green-900/12 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '0.75s', animationDuration: '4s' }}></div>
+          <div className="absolute -bottom-1/3 -right-1/3 w-2/3 h-2/3 hidden md:block bg-gradient-to-tl from-red-900/30 via-green-900/12 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '0.75s', animationDuration: '4s' }}></div>
 
           {/* Center: All colors mixed */}
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-r from-purple-900/20 via-red-900/25 via-green-900/10 to-purple-900/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '0.5s', animationDuration: '4s' }}></div>
@@ -304,6 +305,10 @@ export default function PrizesPage() {
           </div>
         </div>
       </section>
+
+      {/* Venue Section - placed immediately after trophies */}
+      <VenueSection />
+
     </div>
   );
 }

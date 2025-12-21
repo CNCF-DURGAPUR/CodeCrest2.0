@@ -43,7 +43,7 @@ export default function TimelinePage() {
         </div>
 
         {/* Left Wave */}
-        <div className="absolute left-0 top-0 bottom-0 w-40 md:w-56 lg:w-72 opacity-100 z-5">
+        <div className="absolute left-0 top-0 bottom-0 w-40 md:w-56 lg:w-72 opacity-100 z-5 hidden md:block">
           <Image
             src="/waves-DawnI9IY.png"
             alt="Left Wave"
@@ -55,7 +55,7 @@ export default function TimelinePage() {
         </div>
 
         {/* Right Wave */}
-        <div className="absolute right-0 top-0 bottom-0 w-40 md:w-56 lg:w-72 opacity-100 transform scale-x-[-1] z-5">
+        <div className="absolute right-0 top-0 bottom-0 w-40 md:w-56 lg:w-72 opacity-100 transform scale-x-[-1] z-5 hidden md:block">
           <Image
             src="/waves-DawnI9IY.png"
             alt="Right Wave"
@@ -69,16 +69,16 @@ export default function TimelinePage() {
         {/* Blended Gradient Overlay - Red, Purple, Green Mix */}
         <div className="absolute inset-0 pointer-events-none">
           {/* Top-Left: Purple to Red gradient */}
-          <div className="absolute -top-1/3 -left-1/3 w-2/3 h-2/3 bg-gradient-to-br from-purple-900/35 via-red-900/30 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDuration: '4s' }}></div>
+          <div className="absolute -top-1/3 -left-1/3 w-2/3 h-2/3 hidden md:block bg-gradient-to-br from-purple-900/35 via-red-900/30 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDuration: '4s' }}></div>
 
           {/* Top-Right: Red to Purple gradient */}
-          <div className="absolute -top-1/4 -right-1/4 w-2/3 h-2/3 bg-gradient-to-bl from-red-900/35 via-purple-900/30 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s', animationDuration: '4s' }}></div>
+          <div className="absolute -top-1/4 -right-1/4 w-2/3 h-2/3 hidden md:block bg-gradient-to-bl from-red-900/35 via-purple-900/30 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s', animationDuration: '4s' }}></div>
 
           {/* Bottom-Left: Green to Purple gradient */}
-          <div className="absolute -bottom-1/4 -left-1/4 w-2/3 h-2/3 bg-gradient-to-tr from-green-900/15 via-purple-900/12 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s', animationDuration: '4s' }}></div>
+          <div className="absolute -bottom-1/4 -left-1/4 w-2/3 h-2/3 hidden md:block bg-gradient-to-tr from-green-900/15 via-purple-900/12 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s', animationDuration: '4s' }}></div>
 
           {/* Bottom-Right: Red to Green gradient */}
-          <div className="absolute -bottom-1/3 -right-1/3 w-2/3 h-2/3 bg-gradient-to-tl from-red-900/30 via-green-900/12 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '0.75s', animationDuration: '4s' }}></div>
+          <div className="absolute -bottom-1/3 -right-1/3 w-2/3 h-2/3 hidden md:block bg-gradient-to-tl from-red-900/30 via-green-900/12 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '0.75s', animationDuration: '4s' }}></div>
 
           {/* Center: All colors mixed */}
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-r from-purple-900/20 via-red-900/25 via-green-900/10 to-purple-900/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '0.5s', animationDuration: '4s' }}></div>
@@ -104,7 +104,7 @@ export default function TimelinePage() {
       <section id="mystry-advanture" className="relative z-20 py-20">
         <div className="container mx-auto px-4 relative z-10">
           {/* Section header */}
-          <div className="relative text-center mb-16">
+          <div className="relative text-center mb-16 px-4 md:px-0">
             <TextType
               text="MYSTRY ADVANTURE"
               as="h2"
@@ -120,13 +120,13 @@ export default function TimelinePage() {
           <div className="relative text-center mb-20">
             <div className="flex flex-col items-center gap-8">
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-green-400 via-purple-500 to-red-600 rounded-full blur-3xl opacity-60 animate-pulse"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-green-400 via-purple-500 to-red-600 rounded-full blur-3xl opacity-60 animate-pulse hidden md:block"></div>
                 <Image
                   src="/Eleven-removebg-preview.png"
                   alt="Eleven"
                   width={256}
                   height={256}
-                  className="relative h-64 w-auto object-contain drop-shadow-lg"
+                  className="relative h-48 md:h-64 w-auto object-contain drop-shadow-lg"
                   priority
                 />
               </div>

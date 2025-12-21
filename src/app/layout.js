@@ -20,6 +20,7 @@ const michroma = Michroma({
 export const metadata = {
   title: "Code CrestZ",
   description: "Welcome to Code CrestZ",
+  viewport: "width=device-width, initial-scale=1",
 };
 
 export default function RootLayout({ children }) {

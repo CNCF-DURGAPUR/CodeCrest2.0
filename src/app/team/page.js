@@ -11,13 +11,16 @@ import ShinyText from "../../ui/ShinyText";
 export default function MentorsJudgesPage() {
 
   const dockItems = [
-    { label: "Home", icon: "Home", href: "/#home" },
-    { label: "About", icon: "About", href: "/#about" },
-    { label: "Prizes", icon: "Prizes", href: "/#prizes" },
-    { label: "Timeline", icon: "Timeline", href: "/#mystry-advanture" },
-    { label: "Tracks", icon: "Tracks", href: "/#game-zones" },
+    { label: "Home", icon: "Home", href: "#home" },
+    { label: "About", icon: "About", href: "#about" },
+    { label: "Tracks", icon: "Tracks", href: "#game-zones" },
+    { label: "Prizes", icon: "Prizes", href: "#prizes" },
+    { label: "Venue", icon: "Venue", href: "#venue" },
+    { label: "Timeline", icon: "Timeline", href: "#mystry-advanture" },
+    
     { label: "Mentors", icon: "Mentors", href: "/team" },
-    { label: "FAQ", icon: "FAQ", href: "/#faqs" },
+    
+    { label: "FAQ", icon: "FAQ", href: "#faqs" },
   ];
 
   const mentors = [
@@ -131,7 +134,18 @@ export default function MentorsJudgesPage() {
         items={dockItems.map((item) => ({
           ...item,
           onClick: () => {
-            window.location.href = item.href;
+            // If the target is an in-page anchor, prefer smooth scroll when already on home
+            if (item.href && item.href.startsWith('#')) {
+              if (typeof window !== 'undefined' && window.location.pathname === '/') {
+                const el = document.querySelector(item.href);
+                el?.scrollIntoView({ behavior: 'smooth' });
+              } else {
+                // Navigate to home with hash so the browser jumps to the anchor
+                window.location.href = `/${item.href}`;
+              }
+            } else {
+              window.location.href = item.href;
+            }
           },
         }))}
       />

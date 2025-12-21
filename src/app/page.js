@@ -16,11 +16,13 @@ export default function Home() {
   const dockItems = [
     { label: "Home", icon: "Home", href: "#home" },
     { label: "About", icon: "About", href: "#about" },
-    { label: "Prizes", icon: "Prizes", href: "#prizes" },
-    { label: "Timeline", icon: "Timeline", href: "#mystry-advanture" },
     { label: "Tracks", icon: "Tracks", href: "#game-zones" },
-    { label: "Mentors", icon: "Mentors", href: "/team" },
+    { label: "Prizes", icon: "Prizes", href: "#prizes" },
     { label: "Venue", icon: "Venue", href: "#venue" },
+    { label: "Timeline", icon: "Timeline", href: "#mystry-advanture" },
+    
+    { label: "Mentors", icon: "Mentors", href: "/team" },
+    
     { label: "FAQ", icon: "FAQ", href: "#faqs" },
   ];
 
@@ -243,7 +245,7 @@ export default function Home() {
       <section id="about" className="relative z-20 pt-20 pb-8 overflow-hidden will-change-transform">
         <div className="container mx-auto px-4 relative z-10">
           {/* Section Header */}
-          <div className="mb-2 flex flex-col items-start justify-center overflow-hidden ml-auto w-2/3 lg:w-1/2 px-12" suppressHydrationWarning>
+          <div className="mb-2 flex flex-col items-start justify-center overflow-hidden ml-auto w-full md:w-2/3 lg:w-1/2 px-4 md:px-12" suppressHydrationWarning>
             <TextType
               text="The Story"
               as="h2"
@@ -255,18 +257,18 @@ export default function Home() {
             />
           </div>
 
-          <div className="relative min-h-96 flex items-center">
+          <div className="relative min-h-96 flex flex-col md:flex-row items-center">
             {/* Left Side - Image (Overlapping) */}
-            <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-2/3 flex justify-center z-10">
+            <div className="left-0 md:absolute md:top-1/2 md:-translate-y-1/2 w-full md:w-2/3 flex justify-center z-10 about-image-wrapper">
               <div className="relative group w-full">
                 {/* Visible green glow behind image (stronger & larger) */}
-                <div className="absolute inset-0 bg-gradient-to-r from-green-500/60 via-emerald-400/45 to-green-500/60 rounded-full blur-6xl opacity-[0.32] group-hover:opacity-[0.52] transition duration-700 mix-blend-screen pointer-events-none animate-green-pulse" style={{ width: '140%', height: '140%', left: '-20%', top: '-20%' }}></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-green-500/60 via-emerald-400/45 to-green-500/60 rounded-full blur-6xl opacity-[0.32] group-hover:opacity-[0.52] transition duration-700 mix-blend-screen pointer-events-none animate-green-pulse about-decor-large"></div>
 
                 {/* Inner radial accent to help visibility on dark backgrounds (stronger) */}
-                <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full opacity-[0.24] group-hover:opacity-[0.44] transition duration-700 mix-blend-screen pointer-events-none animate-green-pulse-slow" style={{ width: '70%', height: '70%', background: 'radial-gradient(circle, rgba(74,222,128,0.9) 0%, rgba(74,222,128,0.28) 40%, rgba(0,0,0,0) 70%)' }}></div>
+                <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full opacity-[0.24] group-hover:opacity-[0.44] transition duration-700 mix-blend-screen pointer-events-none animate-green-pulse-slow about-decor-inner"></div>
 
                 {/* Subtle green highlight overlay (more visible) */}
-                <div className="absolute inset-0 bg-gradient-to-br from-green-500/30 to-transparent rounded-lg opacity-[0.22] group-hover:opacity-[0.36] transition duration-500 mix-blend-overlay pointer-events-none animate-green-pulse-slow" style={{ width: '100%', height: '100%' }}></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-green-500/30 to-transparent rounded-lg opacity-[0.22] group-hover:opacity-[0.36] transition duration-500 mix-blend-overlay pointer-events-none animate-green-pulse-slow about-decor-overlay"></div>
 
                 <Image
                   src="/stranger-things-2827303-removebg-preview.png"
@@ -279,7 +281,7 @@ export default function Home() {
             </div>
 
             {/* Right Side - Content (Overlapping) */}
-            <div className="relative ml-auto w-2/3 lg:w-1/2 space-y-6 text-base leading-relaxed px-12 py-8 z-20">
+            <div className="relative ml-auto w-full md:w-2/3 lg:w-1/2 space-y-6 text-base leading-relaxed px-6 md:px-12 py-6 md:py-8 z-20">
               <p className="text-lg font-black text-white">
                 <span className="text-xl font-extrabold">Cloud Native Durgapur</span> isn&apos;t just a tech community&mdash;it&apos;s a movement.
               </p>
@@ -562,6 +564,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Venue Section - placed immediately after trophies */}
+      <VenueSection />
 
       {/* Timeline Section */}
       <section id="mystry-advanture" className="relative z-20 py-20 will-change-transform">
@@ -1362,8 +1367,7 @@ export default function Home() {
 
 
 
-      {/* Venue Section */}
-      <VenueSection />
+     
 
       {/* Footer - Space Theme */}
       <footer className="relative z-20 text-white py-12 border-t border-green-500/20">

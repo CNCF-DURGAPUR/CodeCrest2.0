@@ -39,7 +39,7 @@ const MapCard = () => {
           <div className="absolute inset-0 pointer-events-none z-10 bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.4)_50%)] bg-[length:100%_4px] opacity-20"></div>
 
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.578099873674!2d87.2908773760565!3d23.54766019652033!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f772081cede5e9%3A0x33fb9ccb243dfa5!2sNational%20Institute%20of%20Technology%20Durgapur!5e0!3m2!1sen!2sin!4v1709664567890!5m2!1sen!2sin"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3686.5306598754864!2d88.3454204!3d22.484264899999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0270ecc09b4691%3A0x7f99d48523fd066a!2sCalcutta%20Institute%20of%20Engineering%20And%20Management%20(CIEM)!5e0!3m2!1sen!2sin!4v1766301708590!5m2!1sen!2sin"
             width="100%"
             height="100%"
             style={{
@@ -62,14 +62,14 @@ const MapCard = () => {
                 className="text-2xl font-bold text-red-500 mb-1"
                 style={{ fontFamily: "ITC Benguiat Bold, serif" }}
               >
-                NIT DURGAPUR
+                Calcutta Institute of Engineering And Management (CIEM)
               </h4>
               <p className="text-red-200/80 font-mono text-sm">
-                Mahatma Gandhi Rd, A-Zone, Durgapur, West Bengal 713209
+               24, 1A, Chandi Ghosh Rd, Ashok Nagar, Tollygunge, Kolkata, West Bengal 700040
               </p>
             </div>
             <a
-              href="https://maps.app.goo.gl/generic"
+              href="https://maps.app.goo.gl/GsboPSyRY8bMw4ps5"
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-2 bg-red-600/20 hover:bg-red-600/40 border border-red-500 text-red-100 rounded-lg transition-all duration-300 font-bold flex items-center gap-2 group/btn"
