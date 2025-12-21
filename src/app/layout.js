@@ -1,6 +1,5 @@
 import { Geist, Geist_Mono, Michroma } from "next/font/google";
 import "./globals.css";
-import SplashScreen from "./SplashScreen";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,10 +26,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} ${michroma.variable} antialiased`} suppressHydrationWarning>
-        <SplashScreen>
           {children}
-        </SplashScreen>
-      </body>
+      </body> 
     </html>
   );
 }
