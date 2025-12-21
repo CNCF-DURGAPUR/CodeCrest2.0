@@ -131,27 +131,35 @@ export default function PrizesPage() {
                 <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 via-red-500 to-purple-600 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
 
                 {/* Card */}
-                <div className="relative bg-gradient-to-br from-purple-900/60 via-slate-900/70 to-red-900/40 backdrop-blur-xl border border-red-500/50 rounded-2xl p-8 overflow-hidden">
-                  {/* Animated border */}
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-500/0 via-red-400/20 to-purple-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="relative bg-black/60 backdrop-blur-xl border border-red-700/30 rounded-2xl p-8 overflow-hidden shadow-2xl shadow-black/60 hover:scale-105 transition-transform duration-300">
+                  {/* Subtle animated border */}
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-transparent via-red-400/10 to-transparent opacity-0 group-hover:opacity-60 transition-opacity duration-500"></div>
 
-                  {/* Top accent line */}
-                  <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-400 to-transparent opacity-50"></div>
+                  {/* Decorative ribbon badge */}
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-red-700 to-red-500 text-xs font-semibold text-white shadow-md">Beta Winner</div>
 
                   {/* Content */}
                   <div className="relative z-10">
-                    {/* Badge */}
-                    <div className="flex items-center justify-center mb-6">
-                      <div className="w-2 h-2 bg-red-400 rounded-full mr-2 animate-pulse"></div>
-                      <span className="text-xs font-semibold text-red-300 uppercase tracking-widest">Beta Winner</span>
+                    {/* Trophy (SVG Gold) */}
+                    <div className="mb-6 flex justify-center">
+                      <svg className="w-20 h-20 md:w-24 md:h-24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                        <defs>
+                          <linearGradient id="goldGradA" x1="0" x2="1">
+                            <stop offset="0%" stopColor="#FFD36B" />
+                            <stop offset="50%" stopColor="#FFB84D" />
+                            <stop offset="100%" stopColor="#FFDA77" />
+                          </linearGradient>
+                        </defs>
+                        <path d="M7 3h10v2a3 3 0 01-3 3H10A3 3 0 014 5V3z" fill="url(#goldGradA)" />
+                        <path d="M6 8h12v2a4 4 0 01-4 4h-4a4 4 0 01-4-4V8z" fill="#E6B24A" opacity="0.9" />
+                        <path d="M9 15h6v2H9v-2z" fill="#C48A23" opacity="0.9" />
+                        <circle cx="12" cy="9" r="1.5" fill="#FFF6E0" opacity="0.8" />
+                      </svg>
                     </div>
-
-                    {/* Trophy Icon */}
-                    <div className="mb-8 text-6xl filter drop-shadow-lg" style={{ filter: 'drop-shadow(0 0 20px rgba(168, 85, 247, 0.6))' }}>👑</div>
 
                     {/* Prize Amount */}
                     <div className="mb-6">
-                      <p className="text-4xl font-bold bg-gradient-to-r from-purple-200 via-red-300 to-red-400 bg-clip-text text-transparent group-hover:from-purple-100 group-hover:via-red-200 group-hover:to-red-300 transition-all" style={{ fontFamily: 'ITC Benguiat Bold, serif' }}>INR 15,000*</p>
+                      <p className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-yellow-300 via-amber-400 to-yellow-500 bg-clip-text text-transparent transition-all" style={{ fontFamily: 'ITC Benguiat Bold, serif' }}>INR 15,000*</p>
                     </div>
 
                     {/* Description */}
@@ -182,27 +190,36 @@ export default function PrizesPage() {
                 <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 via-red-500 to-purple-500 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
 
                 {/* Card */}
-                <div className="relative bg-gradient-to-br from-purple-900/70 via-slate-900/80 to-red-900/50 backdrop-blur-xl border border-red-500/70 rounded-2xl p-8 overflow-hidden">
-                  {/* Animated border */}
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-500/0 via-red-400/30 to-purple-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="relative bg-black/70 backdrop-blur-2xl border border-red-700/40 rounded-2xl p-8 overflow-hidden shadow-[0_35px_60px_rgba(0,0,0,0.6)] hover:scale-110 transition-transform duration-300">
+                  {/* Subtle animated border */}
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-transparent via-red-400/12 to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-500"></div>
 
-                  {/* Top accent line */}
-                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-red-400 to-transparent opacity-70"></div>
+                  {/* Decorative ribbon badge */}
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-5 py-1.5 rounded-full bg-gradient-to-r from-red-800 to-red-600 text-sm font-bold text-white shadow-lg">Alpha Winner</div>
 
                   {/* Content */}
                   <div className="relative z-10">
-                    {/* Badge */}
-                    <div className="flex items-center justify-center mb-6">
-                      <div className="w-2 h-2 bg-red-400 rounded-full mr-2 animate-pulse"></div>
-                      <span className="text-xs font-semibold text-red-300 uppercase tracking-widest">Alpha Winner</span>
+                    {/* Trophy (larger Gold SVG with halo) */}
+                    <div className="mb-6 flex justify-center relative">
+                      <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-yellow-400/20 to-amber-400/10 blur-3xl opacity-60"></div>
+                      <svg className="w-28 h-28 md:w-32 md:h-32 relative z-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                        <defs>
+                          <linearGradient id="goldGradB" x1="0" x2="1">
+                            <stop offset="0%" stopColor="#FFE4A3" />
+                            <stop offset="50%" stopColor="#FFC04D" />
+                            <stop offset="100%" stopColor="#FFD86A" />
+                          </linearGradient>
+                        </defs>
+                        <path d="M7 3h10v2a3 3 0 01-3 3H10A3 3 0 014 5V3z" fill="url(#goldGradB)" />
+                        <path d="M6 8h12v2a4 4 0 01-4 4h-4a4 4 0 01-4-4V8z" fill="#F1B84A" opacity="0.95" />
+                        <path d="M9 15h6v2H9v-2z" fill="#C48A23" opacity="0.95" />
+                        <circle cx="12" cy="9" r="1.5" fill="#FFF7E9" opacity="0.9" />
+                      </svg>
                     </div>
-
-                    {/* Trophy Icon */}
-                    <div className="mb-8 text-7xl filter drop-shadow-lg" style={{ filter: 'drop-shadow(0 0 30px rgba(239, 68, 68, 0.8))' }}>👑</div>
 
                     {/* Prize Amount */}
                     <div className="mb-6">
-                      <p className="text-5xl font-bold bg-gradient-to-r from-purple-200 via-red-300 to-red-400 bg-clip-text text-transparent group-hover:from-purple-100 group-hover:via-red-200 group-hover:to-red-300 transition-all" style={{ fontFamily: 'ITC Benguiat Bold, serif' }}>INR 25,000*</p>
+                      <p className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-yellow-300 via-amber-400 to-yellow-500 bg-clip-text text-transparent transition-all" style={{ fontFamily: 'ITC Benguiat Bold, serif' }}>INR 25,000*</p>
                     </div>
 
                     {/* Description */}
@@ -233,27 +250,35 @@ export default function PrizesPage() {
                 <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 via-red-500 to-purple-600 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
 
                 {/* Card */}
-                <div className="relative bg-gradient-to-br from-purple-900/60 via-slate-900/70 to-red-900/40 backdrop-blur-xl border border-red-500/50 rounded-2xl p-8 overflow-hidden">
-                  {/* Animated border */}
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-500/0 via-red-400/20 to-purple-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="relative bg-black/60 backdrop-blur-xl border border-red-700/30 rounded-2xl p-8 overflow-hidden shadow-2xl shadow-black/60 hover:scale-105 transition-transform duration-300">
+                  {/* Subtle animated border */}
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-transparent via-red-400/10 to-transparent opacity-0 group-hover:opacity-60 transition-opacity duration-500"></div>
 
-                  {/* Top accent line */}
-                  <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-400 to-transparent opacity-50"></div>
+                  {/* Decorative ribbon badge */}
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-red-700 to-red-500 text-xs font-semibold text-white shadow-md">Gamma Winner</div>
 
                   {/* Content */}
                   <div className="relative z-10">
-                    {/* Badge */}
-                    <div className="flex items-center justify-center mb-6">
-                      <div className="w-2 h-2 bg-red-400 rounded-full mr-2 animate-pulse"></div>
-                      <span className="text-xs font-semibold text-red-300 uppercase tracking-widest">Gamma Winner</span>
+                    {/* Trophy (SVG Gold) */}
+                    <div className="mb-6 flex justify-center">
+                      <svg className="w-20 h-20 md:w-24 md:h-24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                        <defs>
+                          <linearGradient id="goldGradC" x1="0" x2="1">
+                            <stop offset="0%" stopColor="#FFD36B" />
+                            <stop offset="50%" stopColor="#FFB84D" />
+                            <stop offset="100%" stopColor="#FFDA77" />
+                          </linearGradient>
+                        </defs>
+                        <path d="M7 3h10v2a3 3 0 01-3 3H10A3 3 0 014 5V3z" fill="url(#goldGradC)" />
+                        <path d="M6 8h12v2a4 4 0 01-4 4h-4a4 4 0 01-4-4V8z" fill="#E6B24A" opacity="0.9" />
+                        <path d="M9 15h6v2H9v-2z" fill="#C48A23" opacity="0.9" />
+                        <circle cx="12" cy="9" r="1.5" fill="#FFF6E0" opacity="0.8" />
+                      </svg>
                     </div>
-
-                    {/* Trophy Icon */}
-                    <div className="mb-8 text-6xl filter drop-shadow-lg" style={{ filter: 'drop-shadow(0 0 20px rgba(236, 72, 153, 0.7))' }}>👑</div>
 
                     {/* Prize Amount */}
                     <div className="mb-6">
-                      <p className="text-4xl font-bold bg-gradient-to-r from-purple-200 via-red-300 to-red-400 bg-clip-text text-transparent group-hover:from-purple-100 group-hover:via-red-200 group-hover:to-red-300 transition-all" style={{ fontFamily: 'ITC Benguiat Bold, serif' }}>INR 10,000*</p>
+                      <p className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-yellow-300 via-amber-400 to-yellow-500 bg-clip-text text-transparent transition-all" style={{ fontFamily: 'ITC Benguiat Bold, serif' }}>INR 10,000*</p>
                     </div>
 
                     {/* Description */}

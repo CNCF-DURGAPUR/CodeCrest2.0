@@ -259,11 +259,14 @@ export default function Home() {
             {/* Left Side - Image (Overlapping) */}
             <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-2/3 flex justify-center z-10">
               <div className="relative group w-full">
-                {/* Green glow effect behind image */}
-                <div className="absolute inset-0 bg-gradient-to-r from-green-600 via-emerald-500 to-green-600 rounded-full blur-3xl opacity-5 group-hover:opacity-10 transition duration-1000 animate-pulse" style={{ width: '120%', height: '120%', left: '-10%', top: '-10%' }}></div>
+                {/* Visible green glow behind image (stronger & larger) */}
+                <div className="absolute inset-0 bg-gradient-to-r from-green-500/60 via-emerald-400/45 to-green-500/60 rounded-full blur-6xl opacity-[0.32] group-hover:opacity-[0.52] transition duration-700 mix-blend-screen pointer-events-none animate-green-pulse" style={{ width: '140%', height: '140%', left: '-20%', top: '-20%' }}></div>
 
-                {/* Green highlight overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent rounded-lg opacity-0 group-hover:opacity-10 transition duration-500" style={{ width: '100%', height: '100%' }}></div>
+                {/* Inner radial accent to help visibility on dark backgrounds (stronger) */}
+                <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full opacity-[0.24] group-hover:opacity-[0.44] transition duration-700 mix-blend-screen pointer-events-none animate-green-pulse-slow" style={{ width: '70%', height: '70%', background: 'radial-gradient(circle, rgba(74,222,128,0.9) 0%, rgba(74,222,128,0.28) 40%, rgba(0,0,0,0) 70%)' }}></div>
+
+                {/* Subtle green highlight overlay (more visible) */}
+                <div className="absolute inset-0 bg-gradient-to-br from-green-500/30 to-transparent rounded-lg opacity-[0.22] group-hover:opacity-[0.36] transition duration-500 mix-blend-overlay pointer-events-none animate-green-pulse-slow" style={{ width: '100%', height: '100%' }}></div>
 
                 <Image
                   src="/stranger-things-2827303-removebg-preview.png"
@@ -408,32 +411,33 @@ export default function Home() {
                 {/* Glowing background effect - Purple to Red */}
                 <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 via-red-500 to-purple-600 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
 
+                {/* Minimal metallic badge */}
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-neutral-800/80 text-xs font-medium text-gray-200 border border-neutral-700/50">Beta Winner</div>
+
                 {/* Card */}
-                <div className="relative bg-gradient-to-br from-purple-900/60 via-slate-900/70 to-red-900/40 backdrop-blur-xl border border-red-500/50 rounded-2xl p-8 overflow-hidden">
-                  {/* Animated border */}
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-500/0 via-red-400/20 to-purple-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="relative bg-neutral-900/70 backdrop-blur-sm border border-neutral-800/40 rounded-2xl p-8 overflow-hidden shadow-lg transition-transform duration-200">
+                  {/* Subtle top accent */}
+                  <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-700/20 to-transparent opacity-30"></div>
 
-                  {/* Top accent line */}
-                  <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-400 to-transparent opacity-50"></div>
+                  {/* Subtle warm highlight */}
+                  <div className="absolute inset-0 flex items-start justify-center pointer-events-none">
+                    <div className="w-36 h-36 rounded-full bg-gradient-to-r from-yellow-400/20 to-rose-400/8 blur-3xl -mt-8 opacity-80"></div>
+                  </div>
 
-                  {/* Content */}
                   <div className="relative z-10">
-                    {/* Badge */}
-                    <div className="flex items-center justify-center mb-6">
-                      <div className="w-2 h-2 bg-red-400 rounded-full mr-2 animate-pulse"></div>
-                      <span className="text-xs font-semibold text-red-300 uppercase tracking-widest">Beta Winner</span>
+                    {/* Trophy (sleek gold) */}
+                    <div className="mb-4 flex justify-center">
+                      <svg className="w-16 h-16 md:w-18 md:h-18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                       
+                      </svg>
                     </div>
 
-                    {/* Trophy Icon */}
-                    <div className="mb-8 text-6xl filter drop-shadow-lg" style={{ filter: 'drop-shadow(0 0 20px rgba(168, 85, 247, 0.6))' }}>👑</div>
-
-                    {/* Prize Amount */}
-                    <div className="mb-6">
-                      <p className="text-4xl font-bold bg-gradient-to-r from-purple-200 via-red-300 to-red-400 bg-clip-text text-transparent group-hover:from-purple-100 group-hover:via-red-200 group-hover:to-red-300 transition-all" style={{ fontFamily: 'ITC Benguiat Bold, serif' }}>INR 15,000*</p>
+                    <div className="mb-4">
+                      <p className="text-2xl md:text-3xl font-semibold bg-gradient-to-r from-amber-300 via-yellow-300 to-amber-400 bg-clip-text text-transparent" style={{ fontFamily: 'ITC Benguiat Bold, serif' }}>COMING SOON</p>
                     </div>
 
                     {/* Description */}
-                    <p className="text-red-200/80 text-sm">+ Exciting Sponsor Rewards + Partner Benefits (TBA)</p>
+                    <p className="text-red-200/80 text-sm"></p>
 
                     {/* Bottom indicator */}
                     <div className="mt-6 flex justify-center">
@@ -459,32 +463,30 @@ export default function Home() {
                 {/* Glowing background effect - Purple to Red (Brighter) */}
                 <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 via-red-500 to-purple-500 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
 
-                {/* Card */}
-                <div className="relative bg-gradient-to-br from-purple-900/70 via-slate-900/80 to-red-900/50 backdrop-blur-xl border border-red-500/70 rounded-2xl p-8 overflow-hidden">
-                  {/* Animated border */}
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-500/0 via-red-400/30 to-purple-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                {/* Minimal metallic badge */}
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-neutral-800/80 text-xs font-medium text-gray-200 border border-neutral-700/50">Alpha Winner</div>
 
-                  {/* Top accent line */}
-                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-red-400 to-transparent opacity-70"></div>
+                {/* Card */}
+                <div className="relative bg-neutral-900/80 backdrop-blur-sm border border-neutral-800/40 rounded-2xl p-8 overflow-hidden shadow-lg transition-transform duration-200">
+                  {/* Subtle top accent */}
+                  <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-700/20 to-transparent opacity-30"></div>
 
                   {/* Content */}
                   <div className="relative z-10">
-                    {/* Badge */}
-                    <div className="flex items-center justify-center mb-6">
-                      <div className="w-2 h-2 bg-red-400 rounded-full mr-2 animate-pulse"></div>
-                      <span className="text-xs font-semibold text-red-300 uppercase tracking-widest">Alpha Winner</span>
+                    {/* Trophy (larger sleek gold) */}
+                    <div className="mb-4 flex justify-center">
+                      <svg className="w-24 h-24 md:w-28 md:h-28" viewBox="0 0 24 24" fill="none"  aria-hidden>
+                        
+                      </svg>
                     </div>
 
-                    {/* Trophy Icon */}
-                    <div className="mb-8 text-7xl filter drop-shadow-lg" style={{ filter: 'drop-shadow(0 0 30px rgba(239, 68, 68, 0.8))' }}>👑</div>
-
                     {/* Prize Amount */}
-                    <div className="mb-6">
-                      <p className="text-5xl font-bold bg-gradient-to-r from-purple-200 via-red-300 to-red-400 bg-clip-text text-transparent group-hover:from-purple-100 group-hover:via-red-200 group-hover:to-red-300 transition-all" style={{ fontFamily: 'ITC Benguiat Bold, serif' }}>INR 25,000*</p>
+                    <div className="mb-4">
+                      <p className="text-3xl md:text-4xl font-semibold bg-gradient-to-r from-amber-300 via-amber-200 to-yellow-300 bg-clip-text text-transparent" style={{ fontFamily: 'ITC Benguiat Bold, serif' }}>COMING SOON</p>
                     </div>
 
                     {/* Description */}
-                    <p className="text-red-200/80 text-sm">+ Exciting Sponsor Rewards + Partner Benefits (TBA)</p>
+                    <p className="text-red-200/80 text-sm"></p>
 
                     {/* Bottom indicator */}
                     <div className="mt-6 flex justify-center">
@@ -510,32 +512,35 @@ export default function Home() {
                 {/* Glowing background effect - Purple to Red */}
                 <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 via-red-500 to-purple-600 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
 
-                {/* Card */}
-                <div className="relative bg-gradient-to-br from-purple-900/60 via-slate-900/70 to-red-900/40 backdrop-blur-xl border border-red-500/50 rounded-2xl p-8 overflow-hidden">
-                  {/* Animated border */}
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-500/0 via-red-400/20 to-purple-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                {/* Minimal metallic badge */}
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-neutral-800/80 text-xs font-medium text-gray-200 border border-neutral-700/50">Gamma Winner</div>
 
-                  {/* Top accent line */}
-                  <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-400 to-transparent opacity-50"></div>
+                {/* Card */}
+                <div className="relative bg-neutral-900/70 backdrop-blur-sm border border-neutral-800/40 rounded-2xl p-8 overflow-hidden shadow-lg transition-transform duration-200">
+                  {/* Subtle top accent */}
+                  <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-700/20 to-transparent opacity-30"></div>
+
+                  {/* Subtle cool highlight */}
+                  <div className="absolute inset-0 flex items-start justify-center pointer-events-none">
+                    <div className="w-32 h-32 rounded-full bg-gradient-to-r from-amber-400/10 to-yellow-300/6 blur-3xl -mt-6 opacity-70"></div>
+                  </div>
 
                   {/* Content */}
                   <div className="relative z-10">
-                    {/* Badge */}
-                    <div className="flex items-center justify-center mb-6">
-                      <div className="w-2 h-2 bg-red-400 rounded-full mr-2 animate-pulse"></div>
-                      <span className="text-xs font-semibold text-red-300 uppercase tracking-widest">Gamma Winner</span>
+                    {/* Trophy (sleek gold) */}
+                    <div className="mb-4 flex justify-center">
+                      <svg className="w-16 h-16 md:w-18 md:h-18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                        
+                      </svg>
                     </div>
 
-                    {/* Trophy Icon */}
-                    <div className="mb-8 text-6xl filter drop-shadow-lg" style={{ filter: 'drop-shadow(0 0 20px rgba(236, 72, 153, 0.7))' }}>👑</div>
-
                     {/* Prize Amount */}
-                    <div className="mb-6">
-                      <p className="text-4xl font-bold bg-gradient-to-r from-purple-200 via-red-300 to-red-400 bg-clip-text text-transparent group-hover:from-purple-100 group-hover:via-red-200 group-hover:to-red-300 transition-all" style={{ fontFamily: 'ITC Benguiat Bold, serif' }}>INR 10,000*</p>
+                    <div className="mb-4">
+                      <p className="text-2xl md:text-3xl font-semibold bg-gradient-to-r from-amber-300 via-yellow-300 to-amber-400 bg-clip-text text-transparent" style={{ fontFamily: 'ITC Benguiat Bold, serif' }}>COMING SOON</p>
                     </div>
 
                     {/* Description */}
-                    <p className="text-red-200/80 text-sm">+ Exciting Sponsor Rewards + Partner Benefits (TBA)</p>
+                    <p className="text-red-200/80 text-sm"></p>
 
                     {/* Bottom indicator */}
                     <div className="mt-6 flex justify-center">
@@ -608,12 +613,15 @@ export default function Home() {
 
           {/* Timeline Container */}
           <div className="max-w-5xl mx-auto relative">
-            {/* Central Timeline Line - Purple to Red Gradient */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-purple-600 via-red-500 to-purple-600"></div>
-            {/* Glow Effect - Purple and Red */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-2 h-full bg-gradient-to-b from-purple-500/30 via-red-500/40 to-purple-500/30 blur-lg"></div>
-            {/* Additional Red Glow */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-full bg-gradient-to-b from-transparent via-red-600/20 to-transparent blur-2xl"></div>
+
+            {/* Dotted vertical connector (md+) */}
+            <div
+              className="hidden md:block absolute left-1/2 top-6 bottom-6 -translate-x-1/2 pointer-events-none -z-10"
+              style={{
+                width: '2px',
+                backgroundImage: 'repeating-linear-gradient(to bottom, rgba(124,58,237,0.95) 0px, rgba(124,58,237,0.95) 3px, transparent 3px, transparent 12px)'
+              }}
+            />
 
             {/* Timeline Items */}
             <div className="space-y-16">
@@ -628,25 +636,34 @@ export default function Home() {
               >
                 <div className="w-1/2 text-right pr-8">
                   <div className="relative group">
-                    {/* Glowing background effect - Purple to Red */}
-                    <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 via-red-500 to-purple-600 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                    {/* Subtle glow (muted) */}
+                    <div className="absolute -inset-2 bg-gradient-to-r from-purple-700/8 via-red-600/6 to-purple-700/8 rounded-2xl opacity-0 group-hover:opacity-70 transition-all duration-400 pointer-events-none"></div>
+
                     {/* Card */}
-                    <div className="relative bg-gradient-to-br from-purple-900/60 via-slate-900/70 to-red-900/40 backdrop-blur-xl border border-purple-500/50 rounded-xl p-8 overflow-hidden">
-                      {/* Animated border - Purple and Red */}
-                      <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-500/0 via-red-400/20 to-purple-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                      {/* Top accent line - Red gradient */}
-                      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-400 to-transparent opacity-50"></div>
+                    <div className="relative bg-neutral-900/80 backdrop-blur-sm border border-neutral-800/30 rounded-2xl p-8 overflow-hidden group hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                      {/* Soft metallic highlight (top-right) */}
+                      <div className="absolute top-0 right-0 w-28 h-12 bg-gradient-to-r from-yellow-400/6 to-transparent rounded-bl-2xl pointer-events-none opacity-80"></div>
+
+                      {/* Animated border overlay (subtle) */}
+                      <div className="absolute inset-0 rounded-2xl pointer-events-none border-2 border-transparent group-hover:border-red-400/10 transition-colors duration-300"></div>
+
+                      {/* Top accent line - muted */}
+                      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-400/12 to-transparent opacity-40"></div>
+
                       {/* Content */}
                       <div className="relative z-10">
                         <div className="flex items-center justify-end mb-3">
-                          <div className="w-2 h-2 bg-red-400 rounded-full mr-2 animate-pulse"></div>
+                          <div className="w-2 h-2 bg-red-400 rounded-full mr-2 opacity-80"></div>
                           <span className="text-xs font-semibold text-red-300 uppercase tracking-widest">Event</span>
                         </div>
-                        <h3 className="text-3xl font-bold bg-gradient-to-r from-purple-200 via-red-300 to-red-400 bg-clip-text text-transparent mb-3 group-hover:from-purple-100 group-hover:via-red-200 group-hover:to-red-300 transition-all" style={{ fontFamily: 'ITC Benguiat Bold, serif' }}>Registration Opens</h3>
+
+                        <h3 className="text-3xl font-bold text-amber-200 mb-3" style={{ fontFamily: 'ITC Benguiat Bold, serif' }}>Registration Opens</h3>
+
                         <div className="flex items-center justify-end mb-4">
-                          <div className="h-px flex-grow bg-gradient-to-r from-transparent to-red-500/30 mr-3"></div>
-                          <p className="text-sm font-bold text-red-300">April 1, 2026</p>
+                          <div className="h-px flex-grow bg-gradient-to-r from-transparent to-red-400/12 mr-3"></div>
+                          <p className="text-sm font-semibold text-red-300">April 1, 2026</p>
                         </div>
+
                         <p className="text-red-200/80 leading-relaxed text-sm">Start registering for the hackathon and secure your spot</p>
                         <div className="mt-4 flex justify-end">
                           <div className="w-8 h-8 rounded-full border border-red-400/50 flex items-center justify-center group-hover:border-red-300 transition-all">
@@ -700,14 +717,17 @@ export default function Home() {
                 <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full ring-4 ring-slate-900 ring-offset-4 ring-offset-purple-500/30 flex-shrink-0 shadow-lg shadow-purple-500/50"></div>
                 <div className="w-1/2 text-left pl-8">
                   <div className="relative group">
-                    {/* Glowing background effect - Purple to Red */}
-                    <div className="absolute -inset-1 bg-gradient-to-r from-red-600 via-purple-500 to-red-600 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                    {/* Subtle glow */}
+                    <div className="absolute -inset-2 bg-gradient-to-r from-red-700/6 via-purple-700/6 to-red-700/6 rounded-2xl opacity-0 group-hover:opacity-70 transition-all duration-400 pointer-events-none"></div>
+
                     {/* Card */}
-                    <div className="relative bg-gradient-to-br from-red-900/40 via-slate-900/70 to-purple-900/60 backdrop-blur-xl border border-red-500/50 rounded-xl p-8 overflow-hidden">
-                      {/* Animated border - Red and Purple */}
-                      <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-red-500/0 via-red-400/20 to-red-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                      {/* Top accent line - Red gradient */}
-                      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-400 to-transparent opacity-50"></div>
+                    <div className="relative bg-neutral-900/80 backdrop-blur-sm border border-neutral-700/50 rounded-2xl p-8 overflow-hidden group hover:-translate-y-1 hover:shadow-lg transition-all duration-300 ring-1 ring-neutral-800/10 hover:ring-purple-500/10">
+                      {/* Soft metallic highlight (top-left) */}
+                      <div className="absolute top-0 left-0 w-28 h-12 bg-gradient-to-l from-yellow-400/6 to-transparent rounded-br-2xl pointer-events-none opacity-80"></div>
+                      {/* Animated border overlay (muted) */}
+                      <div className="absolute inset-0 rounded-2xl pointer-events-none border-2 border-transparent group-hover:border-purple-500/10 transition-colors duration-300"></div>
+                      {/* Top accent line - muted */}
+                      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-400/12 to-transparent opacity-40"></div>
                       {/* Content */}
                       <div className="relative z-10">
                         <div className="flex items-center mb-3">
@@ -742,14 +762,20 @@ export default function Home() {
               >
                 <div className="w-1/2 text-right pr-8">
                   <div className="relative group">
-                    {/* Glowing background effect - Purple to Red */}
-                    <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 via-red-500 to-purple-600 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                    {/* Subtle glow */}
+                    <div className="absolute -inset-2 bg-gradient-to-r from-purple-700/6 via-red-700/6 to-purple-700/6 rounded-2xl opacity-0 group-hover:opacity-70 transition-all duration-400 pointer-events-none"></div>
+
                     {/* Card */}
-                    <div className="relative bg-gradient-to-br from-purple-900/60 via-slate-900/70 to-red-900/40 backdrop-blur-xl border border-red-500/50 rounded-xl p-8 overflow-hidden">
-                      {/* Animated border - Purple and Red */}
-                      <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-500/0 via-red-400/20 to-purple-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                      {/* Top accent line - Red gradient */}
-                      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-400 to-transparent opacity-50"></div>
+                    <div className="relative bg-neutral-900/80 backdrop-blur-sm border border-neutral-700/50 rounded-2xl p-8 overflow-hidden group hover:-translate-y-1 hover:shadow-lg transition-all duration-300 ring-1 ring-neutral-800/10 hover:ring-red-400/10">
+                      {/* Soft metallic highlight (top-right) */}
+                      <div className="absolute top-0 right-0 w-28 h-12 bg-gradient-to-r from-yellow-400/6 to-transparent rounded-bl-2xl pointer-events-none opacity-80"></div>
+
+                      {/* Animated border overlay (muted) */}
+                      <div className="absolute inset-0 rounded-2xl pointer-events-none border-2 border-transparent group-hover:border-red-400/10 transition-colors duration-300"></div>
+
+                      {/* Top accent line - muted */}
+                      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-400/12 to-transparent opacity-40"></div>
+
                       {/* Content */}
                       <div className="relative z-10">
                         <div className="flex items-center justify-end mb-3">
@@ -816,14 +842,20 @@ export default function Home() {
                 <div className="w-8 h-8 bg-gradient-to-br from-purple-500 via-red-500 to-red-600 rounded-full ring-4 ring-slate-900 ring-offset-4 ring-offset-red-500/30 flex-shrink-0 shadow-lg shadow-red-500/50"></div>
                 <div className="w-1/2 text-left pl-8">
                   <div className="relative group">
-                    {/* Glowing background effect - Red to Purple */}
-                    <div className="absolute -inset-1 bg-gradient-to-r from-red-600 via-purple-500 to-red-600 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                    {/* Subtle glow */}
+                    <div className="absolute -inset-2 bg-gradient-to-r from-red-700/6 via-purple-700/6 to-red-700/6 rounded-2xl opacity-0 group-hover:opacity-70 transition-all duration-400 pointer-events-none"></div>
+
                     {/* Card */}
-                    <div className="relative bg-gradient-to-br from-red-900/40 via-slate-900/70 to-purple-900/60 backdrop-blur-xl border border-red-500/50 rounded-xl p-8 overflow-hidden">
-                      {/* Animated border - Red and Purple */}
-                      <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-red-500/0 via-red-400/20 to-red-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                      {/* Top accent line - Red gradient */}
-                      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-400 to-transparent opacity-50"></div>
+                    <div className="relative bg-neutral-900/80 backdrop-blur-sm border border-neutral-700/50 rounded-2xl p-8 overflow-hidden group hover:-translate-y-1 hover:shadow-lg transition-all duration-300 ring-1 ring-neutral-800/10 hover:ring-red-400/10">
+                      {/* Soft metallic highlight (top-left) */}
+                      <div className="absolute top-0 left-0 w-28 h-12 bg-gradient-to-l from-yellow-400/6 to-transparent rounded-br-2xl pointer-events-none opacity-80"></div>
+
+                      {/* Animated border overlay (muted) */}
+                      <div className="absolute inset-0 rounded-2xl pointer-events-none border-2 border-transparent group-hover:border-red-400/10 transition-colors duration-300"></div>
+
+                      {/* Top accent line - muted */}
+                      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-400/12 to-transparent opacity-40"></div>
+
                       {/* Content */}
                       <div className="relative z-10">
                         <div className="flex items-center mb-3">
@@ -858,14 +890,20 @@ export default function Home() {
               >
                 <div className="w-1/2 text-right pr-8">
                   <div className="relative group">
-                    {/* Glowing background effect - Purple to Red */}
-                    <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 via-red-500 to-purple-600 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                    {/* Subtle glow */}
+                    <div className="absolute -inset-2 bg-gradient-to-r from-purple-700/6 via-red-700/6 to-purple-700/6 rounded-2xl opacity-0 group-hover:opacity-70 transition-all duration-400 pointer-events-none"></div>
+
                     {/* Card */}
-                    <div className="relative bg-gradient-to-br from-purple-900/60 via-slate-900/70 to-red-900/40 backdrop-blur-xl border border-red-500/50 rounded-xl p-8 overflow-hidden">
-                      {/* Animated border - Purple and Red */}
-                      <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-500/0 via-red-400/20 to-purple-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                      {/* Top accent line - Red gradient */}
-                      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-400 to-transparent opacity-50"></div>
+                    <div className="relative bg-neutral-900/80 backdrop-blur-sm border border-neutral-700/50 rounded-2xl p-8 overflow-hidden group hover:-translate-y-1 hover:shadow-lg transition-all duration-300 ring-1 ring-neutral-800/10 hover:ring-purple-500/10">
+                      {/* Soft metallic highlight (top-right) */}
+                      <div className="absolute top-0 right-0 w-28 h-12 bg-gradient-to-r from-yellow-400/6 to-transparent rounded-bl-2xl pointer-events-none opacity-80"></div>
+
+                      {/* Animated border overlay (muted) */}
+                      <div className="absolute inset-0 rounded-2xl pointer-events-none border-2 border-transparent group-hover:border-purple-500/10 transition-colors duration-300"></div>
+
+                      {/* Top accent line - muted */}
+                      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-400/12 to-transparent opacity-40"></div>
+
                       {/* Content */}
                       <div className="relative z-10">
                         <div className="flex items-center justify-end mb-3">
@@ -929,14 +967,20 @@ export default function Home() {
                 <div className="w-8 h-8 bg-gradient-to-br from-purple-500 via-red-500 to-red-600 rounded-full ring-4 ring-slate-900 ring-offset-4 ring-offset-red-500/30 flex-shrink-0 shadow-lg shadow-red-500/50"></div>
                 <div className="w-1/2 text-left pl-8">
                   <div className="relative group">
-                    {/* Glowing background effect - Red to Purple */}
-                    <div className="absolute -inset-1 bg-gradient-to-r from-red-600 via-purple-500 to-red-600 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                    {/* Subtle glow */}
+                    <div className="absolute -inset-2 bg-gradient-to-r from-red-700/6 via-purple-700/6 to-red-700/6 rounded-2xl opacity-0 group-hover:opacity-70 transition-all duration-400 pointer-events-none"></div>
+
                     {/* Card */}
-                    <div className="relative bg-gradient-to-br from-red-900/40 via-slate-900/70 to-purple-900/60 backdrop-blur-xl border border-red-500/50 rounded-xl p-8 overflow-hidden">
-                      {/* Animated border - Red and Purple */}
-                      <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-red-500/0 via-red-400/20 to-red-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                      {/* Top accent line - Red gradient */}
-                      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-400 to-transparent opacity-50"></div>
+                    <div className="relative bg-neutral-900/80 backdrop-blur-sm border border-neutral-700/50 rounded-2xl p-8 overflow-hidden group hover:-translate-y-1 hover:shadow-lg transition-all duration-300 ring-1 ring-neutral-800/10 hover:ring-yellow-400/10">
+                      {/* Soft metallic highlight (top-left) */}
+                      <div className="absolute top-0 left-0 w-28 h-12 bg-gradient-to-l from-yellow-400/6 to-transparent rounded-br-2xl pointer-events-none opacity-80"></div>
+
+                      {/* Animated border overlay (muted) */}
+                      <div className="absolute inset-0 rounded-2xl pointer-events-none border-2 border-transparent group-hover:border-yellow-400/10 transition-colors duration-300"></div>
+
+                      {/* Top accent line - muted */}
+                      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-400/12 to-transparent opacity-40"></div>
+
                       {/* Content */}
                       <div className="relative z-10">
                         <div className="flex items-center mb-3">
@@ -971,14 +1015,20 @@ export default function Home() {
               >
                 <div className="w-1/2 text-right pr-8">
                   <div className="relative group">
-                    {/* Glowing background effect - Purple to Red */}
-                    <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 via-red-500 to-purple-600 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                    {/* Subtle glow */}
+                    <div className="absolute -inset-2 bg-gradient-to-r from-purple-700/6 via-red-700/6 to-purple-700/6 rounded-2xl opacity-0 group-hover:opacity-70 transition-all duration-400 pointer-events-none"></div>
+
                     {/* Card */}
-                    <div className="relative bg-gradient-to-br from-purple-900/60 via-slate-900/70 to-red-900/40 backdrop-blur-xl border border-red-500/50 rounded-xl p-8 overflow-hidden">
-                      {/* Animated border - Purple and Red */}
-                      <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-500/0 via-red-400/20 to-purple-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                      {/* Top accent line - Red gradient */}
-                      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-400 to-transparent opacity-50"></div>
+                    <div className="relative bg-neutral-900/80 backdrop-blur-sm border border-neutral-700/50 rounded-2xl p-8 overflow-hidden group hover:-translate-y-1 hover:shadow-lg transition-all duration-300 ring-1 ring-neutral-800/10 hover:ring-purple-500/10">
+                      {/* Soft metallic highlight (top-right) */}
+                      <div className="absolute top-0 right-0 w-28 h-12 bg-gradient-to-r from-yellow-400/6 to-transparent rounded-bl-2xl pointer-events-none opacity-80"></div>
+
+                      {/* Animated border overlay (muted) */}
+                      <div className="absolute inset-0 rounded-2xl pointer-events-none border-2 border-transparent group-hover:border-purple-500/10 transition-colors duration-300"></div>
+
+                      {/* Top accent line - muted */}
+                      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-400/12 to-transparent opacity-40"></div>
+
                       {/* Content */}
                       <div className="relative z-10">
                         <div className="flex items-center justify-end mb-3">

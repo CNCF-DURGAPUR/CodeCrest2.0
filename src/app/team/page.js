@@ -9,22 +9,6 @@ import ShinyText from "../../ui/ShinyText";
 
 
 export default function MentorsJudgesPage() {
-  const [stars, setStars] = useState([]);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-    const generatedStars = [...Array(100)].map((_, i) => ({
-      id: i,
-      width: Math.random() * 3 + 2,
-      height: Math.random() * 3 + 2,
-      left: Math.random() * 100,
-      top: Math.random() * 100,
-      opacity: Math.random() * 0.9 + 0.5,
-      duration: Math.random() * 3 + 2
-    }));
-    setStars(generatedStars);
-  }, []);
 
   const dockItems = [
     { label: "Home", icon: "Home", href: "/#home" },
@@ -67,34 +51,38 @@ export default function MentorsJudgesPage() {
   ];
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-black">
+    <div className="relative min-h-screen bg-black">
       {/* Animated Background */}
       <div className="fixed inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-green-900/20 via-black/40 to-black/30 animate-gradient-x"></div>
-        <div className="absolute inset-0 bg-gradient-to-tr from-slate-800/20 via-green-800/20 to-black/40 animate-gradient-y"></div>
+        {/* Base dark gradient - more professional */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-black to-slate-950"></div>
 
-        {/* Stars Background */}
-        {mounted && (
-          <div className="absolute inset-0 opacity-100">
-            {stars.map((star) => (
-              <div
-                key={star.id}
-                className="absolute bg-white rounded-full animate-pulse"
-                style={{
-                  width: star.width + 'px',
-                  height: star.height + 'px',
-                  left: star.left + '%',
-                  top: star.top + '%',
-                  opacity: star.opacity,
-                  animationDuration: star.duration + 's'
-                }}
-              />
-            ))}
-          </div>
-        )}
+        {/* Subtle noise texture overlay for depth */}
+        <div className="absolute inset-0 opacity-[0.015]" style={{
+          backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 400 400\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")',
+        }}></div>
 
-        {/* Left Wave */}
-        <div className="absolute left-0 top-0 bottom-0 w-40 md:w-56 lg:w-72 opacity-100 z-5">
+        {/* Cinematic Stars - fewer, more subtle */}
+        <div className="absolute inset-0 opacity-60">
+          {[...Array(50)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute bg-white rounded-full"
+              style={{
+                width: Math.random() * 2 + 0.5 + 'px',
+                height: Math.random() * 2 + 0.5 + 'px',
+                left: Math.random() * 100 + '%',
+                top: Math.random() * 100 + '%',
+                opacity: Math.random() * 0.4 + 0.2,
+                animation: `pulse ${Math.random() * 4 + 3}s ease-in-out infinite`,
+                animationDelay: `${Math.random() * 2}s`
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Left Wave - more subtle */}
+        <div className="absolute left-0 top-0 bottom-0 w-40 md:w-56 lg:w-72 opacity-30 z-5">
           <Image
             src="/waves-DawnI9IY.png"
             alt="Left Wave"
@@ -105,8 +93,8 @@ export default function MentorsJudgesPage() {
           />
         </div>
 
-        {/* Right Wave */}
-        <div className="absolute right-0 top-0 bottom-0 w-40 md:w-56 lg:w-72 opacity-100 transform scale-x-[-1] z-5">
+        {/* Right Wave - more subtle */}
+        <div className="absolute right-0 top-0 bottom-0 w-40 md:w-56 lg:w-72 opacity-30 transform scale-x-[-1] z-5">
           <Image
             src="/waves-DawnI9IY.png"
             alt="Right Wave"
@@ -117,22 +105,24 @@ export default function MentorsJudgesPage() {
           />
         </div>
 
-        {/* Blended Gradient Overlay - Red, Purple, Green Mix */}
+        {/* Professional Stranger Things Lighting - Darker, more cinematic */}
         <div className="absolute inset-0 pointer-events-none">
-          {/* Top-Left: Purple to Red gradient */}
-          <div className="absolute -top-1/3 -left-1/3 w-2/3 h-2/3 bg-gradient-to-br from-purple-900/35 via-red-900/30 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDuration: '4s' }}></div>
+          {/* Top atmospheric red glow - Stranger Things signature */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-1/2 bg-gradient-to-b from-red-950/20 via-red-950/10 to-transparent blur-3xl"></div>
 
-          {/* Top-Right: Red to Purple gradient */}
-          <div className="absolute -top-1/4 -right-1/4 w-2/3 h-2/3 bg-gradient-to-bl from-red-900/35 via-purple-900/30 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s', animationDuration: '4s' }}></div>
+          {/* Subtle purple accent - left side */}
+          <div className="absolute top-1/4 -left-1/4 w-1/2 h-1/2 bg-gradient-to-br from-purple-950/15 via-purple-950/8 to-transparent rounded-full blur-3xl" style={{ animationDuration: '8s' }}></div>
 
-          {/* Bottom-Left: Green to Purple gradient */}
-          <div className="absolute -bottom-1/4 -left-1/4 w-2/3 h-2/3 bg-gradient-to-tr from-green-900/15 via-purple-900/12 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s', animationDuration: '4s' }}></div>
+          {/* Subtle red accent - right side */}
+          <div className="absolute top-1/3 -right-1/4 w-1/2 h-1/2 bg-gradient-to-bl from-red-950/15 via-red-950/8 to-transparent rounded-full blur-3xl" style={{ animationDelay: '2s', animationDuration: '8s' }}></div>
 
-          {/* Bottom-Right: Red to Green gradient */}
-          <div className="absolute -bottom-1/3 -right-1/3 w-2/3 h-2/3 bg-gradient-to-tl from-red-900/30 via-green-900/12 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '0.75s', animationDuration: '4s' }}></div>
+          {/* Bottom red glow - creates depth */}
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-1/3 bg-gradient-to-t from-red-950/12 via-red-950/5 to-transparent blur-2xl"></div>
 
-          {/* Center: All colors mixed */}
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-r from-purple-900/20 via-red-900/25 via-green-900/10 to-purple-900/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '0.5s', animationDuration: '4s' }}></div>
+          {/* Vignette effect for professional look */}
+          <div className="absolute inset-0" style={{
+            background: 'radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0.6) 100%)'
+          }}></div>
         </div>
       </div>
 

@@ -140,7 +140,97 @@ export default function TimelinePage() {
 
           {/* Timeline Container */}
           <div className="relative max-w-5xl mx-auto">
-            {/* content */}
+            <div className="relative">
+
+
+              <ul className="space-y-8 md:space-y-12">
+                {/* Registration */}
+                <li className="relative md:w-1/2 md:ml-auto md:pl-8">
+                  <div className="md:absolute md:left-[-2.5rem] md:top-6 flex md:items-start md:justify-end">
+                    <div className="w-4 h-4 rounded-full bg-gradient-to-br from-amber-400 to-yellow-300 shadow-md md:translate-x-1/2"></div>
+                  </div>
+
+                  <div className="relative group bg-gradient-to-br from-neutral-900/70 to-neutral-800/60 backdrop-blur-sm border border-neutral-700/50 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-200 overflow-hidden ring-1 ring-neutral-800/10 hover:ring-amber-400/10">
+                    {/* Glowing halo */}
+                    <div className="absolute -inset-4 rounded-2xl bg-gradient-to-br from-amber-400/10 to-rose-400/6 blur-3xl opacity-60 transform scale-95 group-hover:scale-100 transition-all duration-500 pointer-events-none"></div>
+                    {/* Animated border overlay */}
+                    <div className="absolute inset-0 rounded-2xl pointer-events-none border-2 border-transparent group-hover:border-amber-400/20 transition-colors duration-300"></div>
+
+                    <h3 className="text-lg md:text-xl font-semibold bg-gradient-to-r from-amber-200 to-amber-300 bg-clip-text text-transparent">Phase 1 — Registration</h3>
+                    <p className="mt-2 text-sm text-red-200/80">Open registrations, team formation, and briefings. <span className="text-xs text-gray-300">Jan 10 — Jan 20</span></p>
+                  </div>
+                </li>
+
+                {/* Mentorship */}
+                <li className="relative md:w-1/2 md:mr-auto md:pr-8">
+                  <div className="md:absolute md:right-[-2.5rem] md:top-6 flex md:items-start md:justify-start">
+                    <div className="w-4 h-4 rounded-full bg-gradient-to-br from-purple-500 to-red-500 shadow-md md:-translate-x-1/2"></div>
+                  </div>
+
+                  <div className="relative group bg-gradient-to-br from-neutral-900/70 to-neutral-800/60 backdrop-blur-sm border border-neutral-700/50 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-200 overflow-hidden ring-1 ring-neutral-800/10 hover:ring-purple-500/10">
+                    {/* Glowing halo */}
+                    <div className="absolute -inset-4 rounded-2xl bg-gradient-to-br from-purple-500/10 to-red-400/6 blur-3xl opacity-60 transform scale-95 group-hover:scale-100 transition-all duration-500 pointer-events-none"></div>
+                    {/* Animated border overlay */}
+                    <div className="absolute inset-0 rounded-2xl pointer-events-none border-2 border-transparent group-hover:border-purple-500/20 transition-colors duration-300"></div>
+
+                    <h3 className="text-lg md:text-xl font-semibold bg-gradient-to-r from-purple-300 to-rose-300 bg-clip-text text-transparent">Phase 2 — Mentorship</h3>
+                    <p className="mt-2 text-sm text-red-200/80">Mentor sessions, workshops, and checkpoints. <span className="text-xs text-gray-300">Jan 21 — Feb 5</span></p>
+                  </div>
+                </li>
+
+                {/* Hackathon */}
+                <li className="relative md:w-1/2 md:ml-auto md:pl-8">
+                  <div className="md:absolute md:left-[-2.5rem] md:top-6 flex md:items-start md:justify-end">
+                    <div className="w-4 h-4 rounded-full bg-gradient-to-br from-green-400 to-emerald-300 shadow-md md:translate-x-1/2"></div>
+                  </div>
+
+                  <div className="relative group bg-gradient-to-br from-neutral-900/80 to-neutral-800/70 backdrop-blur-2xl border border-neutral-700/50 rounded-2xl p-6 shadow-[0_20px_40px_rgba(0,0,0,0.6)] hover:scale-[1.01] transition-transform duration-200 overflow-hidden ring-1 ring-neutral-800/10 hover:ring-green-400/10">
+                    {/* Strong halo */}
+                    <div className="absolute -inset-5 rounded-2xl bg-gradient-to-r from-green-400/10 to-emerald-300/8 blur-3xl opacity-70 transform scale-95 group-hover:scale-100 transition-all duration-500 pointer-events-none"></div>
+                    {/* Animated border overlay */}
+                    <div className="absolute inset-0 rounded-2xl pointer-events-none border-2 border-transparent group-hover:border-green-400/20 transition-colors duration-300"></div>
+
+                    <h3 className="text-lg md:text-xl font-semibold bg-gradient-to-r from-green-200 to-emerald-200 bg-clip-text text-transparent">Phase 3 — Hackathon</h3>
+                    <p className="mt-2 text-sm text-red-200/80">The main event: build, demo, and iterate. <span className="text-xs text-gray-300">Feb 10 — Feb 12</span></p>
+                  </div>
+                </li>
+
+                {/* Judging */}
+                <li className="relative md:w-1/2 md:mr-auto md:pr-8">
+                  <div className="md:absolute md:right-[-2.5rem] md:top-6 flex md:items-start md:justify-start">
+                    <div className="w-4 h-4 rounded-full bg-gradient-to-br from-sky-400 to-indigo-400 shadow-md md:-translate-x-1/2"></div>
+                  </div>
+
+                  <div className="relative group bg-gradient-to-br from-neutral-900/70 to-neutral-800/60 backdrop-blur-sm border border-neutral-700/50 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-200 overflow-hidden ring-1 ring-neutral-800/10 hover:ring-sky-400/10">
+                    {/* Glowing halo */}
+                    <div className="absolute -inset-4 rounded-2xl bg-gradient-to-br from-sky-400/10 to-indigo-400/6 blur-3xl opacity-60 transform scale-95 group-hover:scale-100 transition-all duration-500 pointer-events-none"></div>
+                    {/* Animated border overlay */}
+                    <div className="absolute inset-0 rounded-2xl pointer-events-none border-2 border-transparent group-hover:border-sky-400/20 transition-colors duration-300"></div>
+
+                    <h3 className="text-lg md:text-xl font-semibold bg-gradient-to-r from-sky-200 to-indigo-200 bg-clip-text text-transparent">Phase 4 — Judging</h3>
+                    <p className="mt-2 text-sm text-red-200/80">Judges review and scoring. <span className="text-xs text-gray-300">Feb 13 — Feb 14</span></p>
+                  </div>
+                </li>
+
+                {/* Winners */}
+                <li className="relative md:w-1/2 md:ml-auto md:pl-8">
+                  <div className="md:absolute md:left-[-2.5rem] md:top-6 flex md:items-start md:justify-end">
+                    <div className="w-4 h-4 rounded-full bg-gradient-to-br from-yellow-400 to-amber-300 shadow-md md:translate-x-1/2"></div>
+                  </div>
+
+                  <div className="relative group bg-gradient-to-r from-black/60 to-neutral-900/60 backdrop-blur-lg border border-neutral-700/50 rounded-2xl p-6 shadow-xl overflow-hidden ring-1 ring-neutral-800/10 hover:ring-yellow-400/10">
+                    {/* Subtle halo */}
+                    <div className="absolute -inset-4 rounded-2xl bg-gradient-to-r from-yellow-400/8 to-amber-300/6 blur-3xl opacity-55 transform scale-98 group-hover:scale-100 transition-all duration-500 pointer-events-none"></div>
+                    {/* Animated border overlay */}
+                    <div className="absolute inset-0 rounded-2xl pointer-events-none border-2 border-transparent group-hover:border-yellow-400/20 transition-colors duration-300"></div>
+
+                    <h3 className="text-lg md:text-xl font-semibold bg-gradient-to-r from-yellow-200 to-amber-200 bg-clip-text text-transparent">Phase 5 — Winners</h3>
+                    <p className="mt-2 text-sm text-red-200/80">Winners announced and prize distribution. <span className="text-xs text-gray-300">Feb 15</span></p>
+                  </div>
+                </li>
+
+              </ul>
+            </div>
           </div>
         </div>
       </section>
