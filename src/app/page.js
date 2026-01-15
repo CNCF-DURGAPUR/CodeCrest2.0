@@ -7,6 +7,23 @@ import ShinyText from "../ui/ShinyText";
 import TextType from "../ui/TextType";
 import VenueSection from "./venue/VenueSection";
 
+
+
+// Import images from the project pictures folder so Next.js can bundle and serve them
+import teamImg1 from '../../pictures/WhatsApp_Image_2026-01-10_at_11.35.01_AM-removebg-preview.png';
+import teamImg2 from '../../pictures/WhatsApp_Image_2026-01-10_at_11.35.02_AM__1_-removebg-preview.png';
+import heroImg from '../../pictures/WhatsApp Image 2026-01-10 at 12.55.57 PM.jpeg';
+
+// Timeline / hero images (local pictures)
+import strangerTrailer from '../../pictures/stranger-things-season-5-trailer-drops-removebg-preview.png';
+import whatsapp1158 from '../../pictures/WhatsApp_Image_2026-01-10_at_11.30.58_AM-removebg-preview.png';
+import whatsapp1148 from '../../pictures/WhatsApp_Image_2026-01-10_at_11.30.48_AM-removebg-preview.png';
+import whatsapp1149 from '../../pictures/WhatsApp_Image_2026-01-10_at_11.30.49_AM__1_-removebg-preview.png';
+import whatsapp1150 from '../../pictures/WhatsApp_Image_2026-01-10_at_11.30.50_AM-removebg-preview.png';
+import whatsapp1151 from '../../pictures/WhatsApp_Image_2026-01-10_at_11.30.51_AM-removebg-preview.png';
+import whatsapp1154 from '../../pictures/WhatsApp_Image_2026-01-10_at_11.30.54_AM-removebg-preview.png';
+import whatsapp1155 from '../../pictures/WhatsApp_Image_2026-01-10_at_11.30.55_AM-removebg-preview.png';
+
 import { useState } from "react";
 import { motion } from "motion/react";
 
@@ -30,11 +47,15 @@ export default function Home() {
     <div className="relative min-h-screen bg-black">
       {/* Animated Background */}
       <div className="fixed inset-0 z-0">
-        {/* Base dark gradient - more professional */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-black to-slate-950"></div>
+        {/* Base dark gradient - more professional (subtle/translucent so fog shows) */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950/20 via-black/30 to-slate-950/20"></div>
+
+        {/* Fog Canvas and particles (above the subtle gradient, below content) */}
+      
+      
 
         {/* Subtle noise texture overlay for depth */}
-        <div className="absolute inset-0 opacity-[0.015]" style={{
+        <div className="absolute inset-0 opacity-[0.015] pointer-events-none" style={{
           backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 400 400\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")',
         }}></div>
 
@@ -99,6 +120,8 @@ export default function Home() {
           <div className="absolute inset-0" style={{
             background: 'radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0.6) 100%)'
           }}></div>
+
+          
         </div>
       </div>
 
@@ -118,39 +141,39 @@ export default function Home() {
       />
 
       {/* Hero Section */}
-      <section id="home" className="relative z-20 h-[87vh] w-screen flex items-center overflow-hidden -mx-[calc((100vw-100%)/2)]">
-        <div
-          className="absolute inset-0 w-full h-full"
-          style={{
-            backgroundImage: 'url(/hero-bg.jpg)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center 40%',
-            backgroundRepeat: 'no-repeat'
-          }}
-        ></div>
-        <div className="absolute inset-0 w-full h-full bg-black/50"></div>
+      <section id="home" className="relative z-20 h-screen w-screen flex items-center overflow-hidden -mx-[calc((100vw-100%)/2)]">
+        <div className="absolute inset-0 w-full h-full overflow-hidden" style={{ background: 'linear-gradient(180deg,#0b0000 0%, #220404 40%, #3a0606 100%)' }}>
+          <Image
+            src={heroImg}
+            alt="Hero background"
+            fill
+            className="object-cover object-center w-full h-full"
+            style={{ objectPosition: 'center center' }}
+            priority
+          />
+        </div>
 
-        <div className="container mx-auto px-4 relative z-10 flex items-center">
+        <div className="container mx-auto px-4 relative z-10 flex items-center h-full">
           {/* Hero Content - Left Side */}
-          <div className="relative z-10 w-1/2">
+          <div className="relative z-10 w-full flex flex-col items-center text-center">
 
-            {/* Top Line */}
+            {/* Top Line (centered, smaller) */}
 
             <div className="flex flex-col justify-center items-center mb-6">
-              <div className="w-full flex justify-center">
+              <div className="w-full">
                 <ShinyText
                   text="CODE"
                   speed={5}
                   hollow={true}
-                  className="text-7xl md:text-8xl lg:text-9xl leading-none"
+                  className="text-5xl md:text-7xl lg:text-20xl leading-none"
                 />
               </div>
-              <div className="w-full flex justify-center">
+              <div className="w-full">
                 <ShinyText
                   text="CRESTZ"
                   speed={5}
                   hollow={true}
-                  className="text-7xl md:text-8xl lg:text-9xl leading-none"
+                  className="text-5xl md:text-7xl lg:text-20xl leading-none"
                 />
               </div>
             </div>
@@ -159,7 +182,7 @@ export default function Home() {
 
             {/* Bottom Line */}
 
-            <div className="flex justify-center">
+            {/* <div className="flex justify-center">
               <motion.button
                 className="px-8 py-4 bg-gradient-to-r from-red-600/30 via-red-700/40 to-red-600/30 text-red-200 rounded-xl font-semibold transition-all duration-300 font-bold backdrop-blur-md ring-2 ring-red-500/60 hover:ring-red-400/80 hover:bg-red-600/50 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-red-400/80 shadow-lg shadow-red-900/50"
                 whileHover={{ scale: 1.08 }}
@@ -168,7 +191,7 @@ export default function Home() {
               >
                 <span className="font-bold tracking-wide">REGISTRATION OPEN SOON</span>
               </motion.button>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
@@ -242,10 +265,10 @@ export default function Home() {
       </section>
 
       {/* About Section - Space Theme */}
-      <section id="about" className="relative z-20 pt-20 pb-8 overflow-hidden will-change-transform">
+      <section id="about" className="relative z-20 min-h-[60vh] py-8 md:py-12 overflow-hidden will-change-transform">
         <div className="container mx-auto px-4 relative z-10">
           {/* Section Header */}
-          <div className="mb-2 flex flex-col items-start justify-center overflow-hidden ml-auto w-full md:w-2/3 lg:w-1/2 px-4 md:px-12" suppressHydrationWarning>
+          <div className="mb-0 mt-4 md:mt-6 lg:mt-8 flex flex-col items-center justify-center overflow-hidden mx-auto w-full md:w-2/3 lg:w-1/2 px-4 md:px-12 text-center" suppressHydrationWarning>
             <TextType
               text="The Story"
               as="h2"
@@ -257,61 +280,68 @@ export default function Home() {
             />
           </div>
 
-          <div className="relative min-h-96 flex flex-col md:flex-row items-center">
-            {/* Left Side - Image (Overlapping) */}
-            <div className="left-0 md:absolute md:top-1/2 md:-translate-y-1/2 w-full md:w-2/3 flex justify-center z-10 about-image-wrapper">
-              <div className="relative group w-full">
-                {/* Visible green glow behind image (stronger & larger) */}
-                <div className="absolute inset-0 bg-gradient-to-r from-green-500/60 via-emerald-400/45 to-green-500/60 rounded-full blur-6xl opacity-[0.32] group-hover:opacity-[0.52] transition duration-700 mix-blend-screen pointer-events-none animate-green-pulse about-decor-large"></div>
-
-                {/* Inner radial accent to help visibility on dark backgrounds (stronger) */}
-                <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full opacity-[0.24] group-hover:opacity-[0.44] transition duration-700 mix-blend-screen pointer-events-none animate-green-pulse-slow about-decor-inner"></div>
-
-                {/* Subtle green highlight overlay (more visible) */}
-                <div className="absolute inset-0 bg-gradient-to-br from-green-500/30 to-transparent rounded-lg opacity-[0.22] group-hover:opacity-[0.36] transition duration-500 mix-blend-overlay pointer-events-none animate-green-pulse-slow about-decor-overlay"></div>
-
+          <div className="relative flex flex-col md:flex-row items-center justify-center">
+            {/* Fullscreen image background */}
+            <div className="absolute inset-0 left-0 w-full h-full z-0 flex">
+              {/* <div className="relative w-1/2 h-full overflow-hidden">
                 <Image
-                  src="/stranger-things-2827303-removebg-preview.png"
-                  alt="Stranger Things"
-                  width={500}
-                  height={500}
-                  className="relative w-full h-auto drop-shadow-2xl"
+                  src=""
+                  alt=""
+                  fill
+                  className="object-contain object-left transform md:scale-110 lg:scale-125 md:-translate-x-4 lg:-translate-x-8 transition-transform duration-500"
                 />
-              </div>
+              </div> */}
+
+              {/* <div className="relative w-1/2 h-full overflow-hidden">
+                <Image
+                  src=""
+                  alt=""
+                  fill
+                  className="object-contain object-right"
+                />
+              </div> */}
+
+              {/* dimming overlay for content readability */}
             </div>
 
-            {/* Right Side - Content (Overlapping) */}
-            <div className="relative ml-auto w-full md:w-2/3 lg:w-1/2 space-y-6 text-base leading-relaxed px-6 md:px-12 py-6 md:py-8 z-20">
-              <p className="text-lg font-black text-white">
-                <span className="text-xl font-extrabold">Cloud Native Durgapur</span> isn&apos;t just a tech community&mdash;it&apos;s a movement.
-              </p>
+            {/* Full-width Horizontal Content */}
+            <div className="relative w-full space-y-6 text-base leading-relaxed px-6 md:px-12 py-4 z-20">
+              <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-4">
+                  <p className="text-lg font-black text-white">
+                    <span className="text-xl font-extrabold">Cloud Native Durgapur</span> isn&apos;t just a tech community&mdash;it&apos;s a movement.
+                  </p>
 
-              <p className="text-white font-bold">
-                We&apos;re a passionate collective of developers, creators, innovators, and cloud enthusiasts from Durgapur and across Eastern India. United by curiosity and a shared drive, we build, experiment, and grow with the latest in Cloud, DevOps, Kubernetes, Microservices, AI/ML, and the entire cloud-native landscape.
-              </p>
+                  <p className="text-white font-bold">
+                    We&apos;re a passionate collective of developers, creators, innovators, and cloud enthusiasts from Durgapur and across Eastern India. United by curiosity and a shared drive, we build, experiment, and grow with the latest in Cloud, DevOps, Kubernetes, Microservices, AI/ML, and the entire cloud-native landscape.
+                  </p>
 
-              <p className="text-white font-bold">
-                <span className="text-red-400">What sets us apart?</span> We blend hands-on learning with real-world building&mdash;organizing engaging workshops, bootcamps, technical talks, hackathons, and collaborative meetups that empower the builders and thinkers of tomorrow.
-              </p>
+                  <p className="text-white font-bold">
+                    <span className="text-red-400">What sets us apart?</span> We blend hands-on learning with real-world building&mdash;organizing engaging workshops, bootcamps, technical talks, hackathons, and collaborative meetups that empower the builders and thinkers of tomorrow.
+                  </p>
+                </div>
 
-              <p className="text-white font-bold">
-                At Cloud Native Durgapur, we believe tech should be inclusive, practical, and truly community-powered.
-              </p>
+                <div className="space-y-4">
+                  <p className="text-white font-bold">
+                    At Cloud Native Durgapur, we believe tech should be inclusive, practical, and truly community-powered.
+                  </p>
 
-              <p className="pt-6 text-red-300 font-semibold text-lg">
-                Join us&mdash;whether you&apos;re a seasoned cloud architect, an ambitious student, or anyone eager to reimagine what&apos;s possible with cloud technology.
-              </p>
+                  <p className="pt-2 text-red-300 font-semibold text-lg">
+                    Join us&mdash;whether you&apos;re a seasoned cloud architect, an ambitious student, or anyone eager to reimagine what&apos;s possible with cloud technology.
+                  </p>
 
-              <p className="pt-6 text-red-300 font-semibold text-lg">
-                Now, we&apos;re back with <span className="text-red-400">CODE CRESTZ</span> &mdash; a bigger, bolder hackathon to push innovation and collaboration to new heights.
-              </p>
+                  <p className="pt-2 text-red-300 font-semibold text-lg">
+                    Now, we&apos;re back with <span className="text-red-400">CODE CRESTZ</span> &mdash; a bigger, bolder hackathon to push innovation and collaboration to new heights.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Game Zones Section */}
-      <section id="game-zones" className="relative z-20 py-20 will-change-transform">
+      <section id="game-zones" className="relative z-20 py-12 will-change-transform">
         <div className="container mx-auto px-4 relative z-10">
           {/* Section Header */}
           <div className="relative text-center mb-16">
@@ -598,11 +628,11 @@ export default function Home() {
 
             <div className="flex justify-center mb-8">
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-green-400 via-purple-500 to-red-600 rounded-full blur-2xl opacity-80 animate-pulse"></div>
-                <div className="absolute inset-0 bg-gradient-to-tr from-red-600 to-red-500 rounded-full blur-3xl opacity-70"></div>
-                <div className="absolute inset-0 bg-radial-gradient from-red-500 rounded-full blur-xl opacity-60"></div>
+                {/* <div className="absolute inset-0 bg-gradient-to-br from-green-300/40 via-purple-400/30 to-red-500/30 rounded-full blur-lg opacity-60 animate-pulse mix-blend-overlay pointer-events-none"></div>
+                <div className="absolute inset-0 bg-gradient-to-tr from-red-500/30 to-red-400/25 rounded-full blur-md opacity-50 mix-blend-overlay pointer-events-none"></div>
+                <div className="absolute inset-0 bg-radial-gradient from-red-500/25 rounded-full blur-md opacity-45 mix-blend-overlay pointer-events-none"></div> */}
                 <Image
-                  src="/StrangerThings_S3_Eleven_RGB_Digital_ES-ES-removebg-preview.png"
+                  src={strangerTrailer}
                   alt="Eleven"
                   width={640}
                   height={320}
@@ -686,8 +716,8 @@ export default function Home() {
                     <div className="absolute inset-0 bg-gradient-to-tr from-red-600 to-red-500 rounded-full blur-3xl opacity-70"></div>
                     <div className="absolute inset-0 bg-radial-gradient from-red-500 rounded-full blur-xl opacity-60"></div>
                     <Image
-                      src="/Jane_Ives-removebg-preview.png"
-                      alt="Jane Ives"
+                      src={whatsapp1158}
+                      alt="Character"
                       width={256}
                       height={256}
                       className="relative h-64 w-auto object-contain drop-shadow-lg hover:scale-105 transition-transform duration-300"
@@ -711,7 +741,7 @@ export default function Home() {
                     <div className="absolute inset-0 bg-gradient-to-tr from-red-600 to-red-500 rounded-full blur-3xl opacity-70"></div>
                     <div className="absolute inset-0 bg-radial-gradient from-red-500 rounded-full blur-xl opacity-60"></div>
                     <Image
-                      src="/Michael_Wheeler-removebg-preview.png"
+                      src={whatsapp1148}
                       alt="Michael Wheeler"
                       width={256}
                       height={256}
@@ -809,7 +839,7 @@ export default function Home() {
                     <div className="absolute inset-0 bg-gradient-to-tr from-red-600 to-red-500 rounded-full blur-3xl opacity-70"></div>
                     <div className="absolute inset-0 bg-radial-gradient from-red-500 rounded-full blur-xl opacity-60"></div>
                     <Image
-                      src="/stranger-things-photoroom.png"
+                      src={whatsapp1149}
                       alt="Stranger Things"
                       width={288}
                       height={288}
@@ -835,7 +865,7 @@ export default function Home() {
                     <div className="absolute inset-0 bg-gradient-to-tr from-red-600 to-red-500 rounded-full blur-3xl opacity-70"></div>
                     <div className="absolute inset-0 bg-radial-gradient from-red-500 rounded-full blur-xl opacity-60"></div>
                     <Image
-                      src="/lucas-sinclair-photoroom.png"
+                      src={whatsapp1150}
                       alt="Lucas Sinclair"
                       width={288}
                       height={288}
@@ -936,7 +966,7 @@ export default function Home() {
                     <div className="absolute inset-0 bg-gradient-to-br from-green-400 via-purple-500 to-red-600 rounded-full blur-2xl opacity-80 animate-pulse"></div>
                     <div className="absolute inset-0 bg-gradient-to-tr from-red-600 to-red-500 rounded-full blur-3xl opacity-70"></div>
                     <Image
-                      src="/nancy-wheeler-photoroom.png"
+                      src={whatsapp1151}
                       alt="Nancy Wheeler"
                       width={288}
                       height={288}
@@ -961,7 +991,7 @@ export default function Home() {
                     <div className="absolute inset-0 bg-gradient-to-tr from-red-600 to-red-500 rounded-full blur-3xl opacity-70"></div>
                     <div className="absolute inset-0 bg-radial-gradient from-red-500 rounded-full blur-xl opacity-60"></div>
                     <Image
-                      src="/character-photoroom.png"
+                      src={whatsapp1155}
                       alt="Character"
                       width={288}
                       height={288}
@@ -1062,7 +1092,7 @@ export default function Home() {
                     <div className="absolute inset-0 bg-gradient-to-tr from-red-600 to-red-500 rounded-full blur-3xl opacity-70"></div>
                     <div className="absolute inset-0 bg-radial-gradient from-red-500 rounded-full blur-xl opacity-60"></div>
                     <Image
-                      src="/st-character-poster-photoroom.png"
+                      src={whatsapp1154}
                       alt="Stranger Things Poster"
                       width={288}
                       height={288}

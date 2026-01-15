@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono, Michroma } from "next/font/google";
 import "./globals.css";
+import SnowfallClient from "../ui/SnowfallClient";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,6 +29,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} ${michroma.variable} antialiased`} suppressHydrationWarning>
           {children}
+          {/* Snow overlay rendered client-side across the whole site */}
+          <SnowfallClient snowflakeCount={80} />
+     
       </body> 
     </html>
   );

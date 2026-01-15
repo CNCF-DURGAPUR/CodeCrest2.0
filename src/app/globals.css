@@ -244,3 +244,99 @@ html.scrolling .animate-gradient-y {
     background-position: 200% center;
   }
 }
+
+/* =========================
+   Foggy Clouds & Dust Overlays
+   ========================= */
+
+/* slow drift for large cloud forms */
+@keyframes cloud-drift {
+  0% { transform: translateX(0%) translateY(0%); }
+  50% { transform: translateX(-6%) translateY(-1.5%); }
+  100% { transform: translateX(-12%) translateY(0%); }
+}
+
+/* a separate, slower cloud layer */
+@keyframes cloud-drift-slow {
+  0% { transform: translateX(0%) translateY(0%); }
+  50% { transform: translateX(6%) translateY(1.5%); }
+  100% { transform: translateX(12%) translateY(0%); }
+}
+
+/* subtle vertical shift for fog to feel alive */
+@keyframes fog-breathe {
+  0% { transform: translateY(0%); opacity: 0.55; }
+  50% { transform: translateY(-2%); opacity: 0.72; }
+  100% { transform: translateY(0%); opacity: 0.55; }
+}
+
+/* Thick, soft fog base */
+.fog-layer {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(ellipse at 10% 20%, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 18%, transparent 45%),
+    radial-gradient(ellipse at 90% 80%, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 22%, transparent 52%),
+    linear-gradient(180deg, rgba(8,10,12,0.45), rgba(8,8,16,0.55));
+  background-size: 140% 120%, 160% 140%, 100% 100%;
+  filter: blur(60px) saturate(120%);
+  mix-blend-mode: overlay;
+  opacity: 0.68;
+  animation: fog-breathe 20s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Main drifting cloud layer (more contrast, mid depth) */
+.clouds-overlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(ellipse at 20% 20%, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.03) 30%, transparent 60%),
+    radial-gradient(ellipse at 80% 80%, rgba(255,255,255,0.09) 0%, rgba(255,255,255,0.02) 35%, transparent 65%);
+  background-size: 120% 120%, 140% 140%;
+  filter: blur(36px) saturate(120%);
+  mix-blend-mode: screen;
+  opacity: 0.6;
+  transform-origin: center;
+  animation: cloud-drift 60s linear infinite;
+  will-change: transform, opacity;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Secondary cloud layer for parallax/depth */
+.clouds-overlay-2 {
+  filter: blur(50px) saturate(110%);
+  opacity: 0.45;
+  animation: cloud-drift-slow 110s linear infinite;
+  mix-blend-mode: screen;
+  z-index: 1;
+}
+
+/* Dust particles - lighter, faint fog-like specks */
+@keyframes dust-fall {
+  0% { transform: translateY(-5%); opacity: 0.85; }
+  100% { transform: translateY(105%); opacity: 0.25; }
+}
+
+.dust-overlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(rgba(255,255,255,0.85) 0.9px, transparent 1px),
+    radial-gradient(rgba(255,255,255,0.45) 0.8px, transparent 1px);
+  background-size: 14px 14px, 28px 28px;
+  opacity: 0.035; /* lighter for foggy feel */
+  animation: dust-fall 32s linear infinite;
+  mix-blend-mode: overlay;
+  filter: blur(0.8px) saturate(90%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .clouds-overlay, .clouds-overlay-2, .fog-layer, .dust-overlay { animation: none !important; }
+}
+
