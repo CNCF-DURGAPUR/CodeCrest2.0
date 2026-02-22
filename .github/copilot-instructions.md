@@ -56,7 +56,7 @@ Repository: `CNCF-DURGAPUR/CodeCrest2.0`
 - Using `pages/` directory structure
 - Using `framer-motion` directly — use `motion/react` instead
 - Adding unnecessary `useEffect` for things achievable with derived state
-- Generating placeholder/lorem ipsum content — use real event-related contexts
+- Generating placeholder/lorem ipsum content — use real event-related contextsdfsfdsdfs
 
 ## CI/CD Context
 - **GitHub Actions**: Runs `npx next lint --dir src` + `npm run build` on push/PR to `main`
