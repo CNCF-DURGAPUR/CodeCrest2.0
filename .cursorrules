@@ -1,0 +1,65 @@
+# CodeForChange 2.0 — Cursor Rules
+
+## Project Overview
+This is **CodeForChange 2.0**, the official event website for Cloud Native Durgapur's hackathon.
+Built with Next.js 15 (App Router), React 19, Tailwind CSS 4, and rich animation libraries.
+
+## Tech Stack
+- **Framework**: Next.js 15 (App Router) — `/src/app/`
+- **UI**: React 19, Tailwind CSS 4
+- **Animations**: Motion (Framer Motion v12), GSAP 3
+- **3D/WebGL**: React Three Fiber, React Three Drei, Three.js, OGL
+- **Other**: react-snowfall, postprocessing
+
+## Code Style & Conventions
+
+### General
+- Use **JavaScript** (not TypeScript) — this project has no TS setup
+- Use `"use client"` directive only when the component needs browser APIs or interactivity
+- Prefer functional components with hooks
+- Keep components **small and focused** — one responsibility per file
+
+### File Structure
+- App pages go in `src/app/`
+- Reusable UI components go in `src/ui/`
+- Route-specific components go alongside their page (e.g. `src/app/venue/`)
+- Images go in `pictures/` (imported via Next.js Image) or `public/` (for static assets)
+
+### Imports
+- Use relative imports (not absolute) — e.g. `../ui/ShinyText`
+- Import Next.js `Image` for all `<img>` tags
+- Import animations from `motion/react` (not `framer-motion`)
+
+### Styling
+- Use Tailwind CSS utility classes — avoid inline styles unless for dynamic values
+- Use `globals.css` for base styles and CSS variables
+- Dark theme by default — keep backgrounds dark, use glassmorphism for cards
+
+### Animations
+- Use `motion` from `motion/react` for component animations
+- Use GSAP for scroll-triggered or complex timeline animations
+- Keep animations smooth — prefer `ease` curves over linear
+- Respect reduced motion where possible
+
+### Next.js Specifics
+- Always use `next/image` for images with proper `width`/`height` or `fill`
+- Use `next/font` if adding fonts
+- API routes go in `src/app/api/`
+- Use `layout.js` for shared layout, `loading.jsx` for loading states
+
+### Performance
+- Lazy load heavy components (3D, WebGL) with `dynamic(() => import(...), { ssr: false })`
+- Avoid importing large libraries at the top level if only used in one place
+- Use `React.memo` for expensive pure components
+
+## Do NOT
+- Add TypeScript — keep `.js`/`.jsx` extensions
+- Use `pages/` directory — this is App Router only
+- Use `styled-components` or CSS-in-JS
+- Commit `node_modules`, `.env`, or `.vercel`
+- Break existing animation or 3D component APIs
+
+## CI/CD
+- GitHub Actions runs lint (`npx next lint --dir src`) and build on every push/PR
+- Vercel auto-deploys on every push to `main`
+- Always ensure `npm run build` passes before pushing
